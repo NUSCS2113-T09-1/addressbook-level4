@@ -19,6 +19,7 @@ import org.junit.rules.ExpectedException;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import seedu.address.model.machine.Machine;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.exceptions.DuplicatePersonException;
 import seedu.address.testutil.PersonBuilder;
@@ -104,6 +105,12 @@ public class AddressBookTest {
         @Override
         public ObservableList<Person> getPersonList() {
             return persons;
+        }
+
+        //TODO havent integrated this code properly yet
+        @Override
+        public ObservableList<Machine> getMachineList() {
+            return null;
         }
     }
 

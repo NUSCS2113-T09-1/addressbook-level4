@@ -1,6 +1,6 @@
 package seedu.address.model.job;
 
-import seedu.address.model.person.Machine;
+import seedu.address.model.machine.Machine;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 
