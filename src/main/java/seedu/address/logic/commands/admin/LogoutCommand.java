@@ -1,5 +1,7 @@
 package seedu.address.logic.commands.admin;
 
+import seedu.address.commons.core.EventsCenter;
+import seedu.address.commons.events.ui.AdminLogoutEvent;
 import seedu.address.logic.CommandHistory;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.CommandResult;
@@ -28,6 +30,7 @@ public class LogoutCommand extends Command {
         model.clearLogin();
         model.commitAddressBook(); //TODO: Not sure what this does
 
+        EventsCenter.getInstance().post(new AdminLogoutEvent());
         return new CommandResult(MESSAGE_SUCCESS);
     }
 
