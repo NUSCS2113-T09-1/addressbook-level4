@@ -1,0 +1,5 @@
+{
+  "appTitle" : "Maker Manager",
+  "logLevel" : "INFO",
+  "userPrefsFilePath" : "preferences.json"
+}
