@@ -38,6 +38,26 @@ public class UniqueJobList {
     }
 
     /**
+     * Replaces the job {@code target} in the list with {@code editedJob}.
+     * {@code target} must exist in the list.
+     * The job identity of {@code editedJob} must not be the same as another existing job in the list.
+     */
+    public void setJob(Job target, Job editedJob) {
+        requireAllNonNull(target, editedJob);
+
+        int index = internalList.indexOf(target);
+        if (index == -1) {
+            throw new JobNotFoundException();
+        }
+
+        if (!target.isSameJob(editedJob) && contains(editedJob)) {
+            throw new DuplicateJobException();
+        }
+
+        internalList.set(index, editedJob);
+    }
+
+    /**
      * Removes the equivalent job from the list.
      * The job must exist in the list.
      */
@@ -66,6 +86,19 @@ public class UniqueJobList {
         internalList.setAll(jobs);
     }
 
+    /**
+     * Returns the job, given the username
+     * @param jobname
+     * @return
+     */
+    public Job findJob(JobName jobname) {
+        for (Job job: internalList) {
+            if (job.getName().equals(jobname)) {
+                return job;
+            }
+        }
+        return null;
+    }
 
     /**
      * Returns the backing list as an unmodifiable {@code ObservableList}.

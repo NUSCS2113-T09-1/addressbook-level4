@@ -1,5 +1,7 @@
 package seedu.address.logic.commands.admin;
 
+import static java.util.Objects.requireNonNull;
+
 import seedu.address.logic.CommandHistory;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.CommandResult;
@@ -16,13 +18,14 @@ public class RemoveAdminCommand extends Command {
     public static final String MESSAGE_NO_ACCESS = "You must be logged in to remove another admin!";
     public static final String MESSAGE_SUCCESS = "Admin removed successfully!";
     public static final String MESSAGE_NO_SUCH_ADMIN = "No such admins exist. Have you typed the username correctly?";
-    private static final String MESSAGE_CANT_DELETE_LAST_ADMIN = "You can't delete the last admin.";
+    public static final String MESSAGE_CANT_DELETE_LAST_ADMIN = "You can't delete the last admin.";
     public static final String MESSAGE_USAGE = COMMAND_WORD + "Used to remove another admin.\n"
             + "Example: removeAdmin USERNAME\n";
 
     private final Username username;
 
     public RemoveAdminCommand(Username username) {
+        requireNonNull(username);
         this.username = username;
     }
 

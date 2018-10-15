@@ -1,5 +1,7 @@
 package seedu.address.model.admin;
 
+import static java.util.Objects.requireNonNull;
+
 /**
  * Represents the Username of an admin
  */
@@ -8,6 +10,7 @@ public class Username {
     private String value;
 
     public Username(String username) {
+        requireNonNull(username);
         this.value = username;
     }
 

@@ -1,6 +1,7 @@
 package seedu.address.model.machine;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.util.List;
 
@@ -39,6 +40,27 @@ public class UniqueMachineList {
 
         internalList.setAll(machines);
     }
+
+    /**
+     * Replaces the person {@code target} in the list with {@code editedMachine}.
+     * {@code target} must exist in the list.
+     * The person identity of {@code editedMachine} must not be the same as another existing person in the list.
+     */
+    public void setMachine(Machine target, Machine editedMachine) {
+        requireAllNonNull(target, editedMachine);
+
+        int index = internalList.indexOf(target);
+        if (index == -1) {
+            throw new MachineNotFoundException();
+        }
+
+        if (!target.isSameMachine(editedMachine) && contains(editedMachine)) {
+            throw new DuplicateMachineException();
+        }
+
+        internalList.set(index, editedMachine);
+    }
+
     /**
      * Adds the Machine to the list
      * The Machine must not exist in the list

@@ -13,7 +13,7 @@ public class LogoutCommand extends Command {
 
     public static final String COMMAND_WORD = "logout";
     public static final String MESSAGE_SUCCESS = "logout successful!";
-    private static final String MESSAGE_NO_CURRENT_SESSION = "Logout failed! No one is currently logged in.";
+    public static final String MESSAGE_NO_CURRENT_SESSION = "Logout failed! No one is currently logged in.";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + "Logout used to get out of admin mode.\n"
             + "Example: logout\n";
