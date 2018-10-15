@@ -197,7 +197,7 @@ public class AddressBook implements ReadOnlyAddressBook {
      */
     private Admin encryptedAdmin(Admin rawAdmin) {
         Password encryptedPassword = new Password(
-                BCrypt.hashpw(rawAdmin.getPassword().toString(), BCrypt.gensalt()));
+            BCrypt.hashpw(rawAdmin.getPassword().toString(), BCrypt.gensalt()));
         Admin protectedAdmin = new Admin(rawAdmin.getUsername(), encryptedPassword);
         return protectedAdmin;
     }
@@ -303,8 +303,8 @@ public class AddressBook implements ReadOnlyAddressBook {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof AddressBook // instanceof handles nulls
-                && persons.equals(((AddressBook) other).persons));
+            // || (other instanceof AddressBook // instanceof handles nulls
+            && persons.equals(((AddressBook) other).persons);
         //TODO: refine later
     }
 

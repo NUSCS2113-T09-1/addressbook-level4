@@ -16,6 +16,7 @@ import seedu.address.model.job.JobOwner;
 import seedu.address.model.job.JobPriority;
 import seedu.address.model.machine.Machine;
 import seedu.address.model.machine.MachineName;
+import seedu.address.model.machine.MachineStatus;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
@@ -149,14 +150,17 @@ public class ParserUtil {
      * Parses {@code String machineStatus} into {@code Boolean boolMachineStatus}
      * depending if {@code machineStatus} equals true or false
      */
-    public static Boolean parseMachineStatus(String machineStatus) throws ParseException {
+    public static MachineStatus parseMachineStatus(String machineStatus) throws ParseException {
         requireNonNull(machineStatus);
         String trimMachineStatus = machineStatus.trim();
-        if ((!machineStatus.equals("ENABLED")) && (!machineStatus.equals("DISABLED"))) {
-            throw new ParseException(Machine.MESSAGE_WRONG_STATUS);
+        switch (trimMachineStatus) {
+            case "ENABLED":
+                return MachineStatus.ENABLED;
+            case "DISABLED":
+                return MachineStatus.DISABLED;
+            default:
+                throw new ParseException(Machine.MESSAGE_WRONG_STATUS);
         }
-
-        return trimMachineStatus.equals("ENABLED");
     }
 
     /**
@@ -187,7 +191,8 @@ public class ParserUtil {
         if (!Machine.isValidMachine(trimmedMachine)) {
             throw new ParseException(Machine.MESSAGE_MACHINENAME_CONSTRAINTS);
         }
-        return new Machine(new MachineName(trimmedMachine), new ArrayList<Job>(), new HashSet<>(), true);
+        return new Machine(new MachineName(trimmedMachine), new ArrayList<Job>(),
+                new HashSet<>(), MachineStatus.ENABLED);
     }
 
     // TODO: 10-Oct-18 hardcoded: should find a better way or modify the JobOwner
