@@ -22,6 +22,7 @@ import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.admin.Admin;
 import seedu.address.model.admin.Username;
 import seedu.address.model.job.Job;
+import seedu.address.model.job.JobName;
 import seedu.address.model.machine.Machine;
 import seedu.address.model.person.Person;
 import seedu.address.testutil.PersonBuilder;
@@ -133,6 +134,17 @@ public class AddCommandTest {
         }
 
         @Override
+        public void updateMachine(Machine target, Machine editedMachine) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public boolean hasMachine(Machine person) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+
+        @Override
         public void addAdmin(Admin admin) {
             throw new AssertionError("This method should not be called.");
         }
@@ -153,7 +165,7 @@ public class AddCommandTest {
         }
 
         @Override
-        public void deleteJob(Job job) {
+        public void removeJob(Job job) {
             throw new AssertionError("This method should not be called.");
         }
 
@@ -164,6 +176,11 @@ public class AddCommandTest {
         @Override
         public boolean hasJob(Job job) {
             throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public Job findJob(JobName jobName) {
+            return null;
         }
 
         @Override
@@ -184,11 +201,6 @@ public class AddCommandTest {
         @Override
         public Username currentlyLoggedIn() {
             return null;
-        }
-
-        @Override
-        public boolean hasAdmin(Admin admin) {
-            throw new AssertionError("This method should not be called.");
         }
 
         @Override
@@ -228,6 +240,16 @@ public class AddCommandTest {
 
         @Override
         public void updateFilteredJobList(Predicate<Job> predicate) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public ObservableList<Admin> getFilteredAdminList() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void updateFilteredAdminList(Predicate<Admin> predicate) {
             throw new AssertionError("This method should not be called.");
         }
 
