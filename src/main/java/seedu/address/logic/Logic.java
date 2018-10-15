@@ -28,6 +28,9 @@ public interface Logic {
     /** Returns an unmodifiable view of the filtered list of machines */
     ObservableList<Machine> getFilteredMachineList();
 
+    /** Returns an unmodifiable vie wof the filtered list of admins */
+    ObservableList<Admin> getFilteredAdminList();
+    
     /** Returns an unmodifiable view of the filtered list of jobs */
     ObservableList<Job> getFilteredJobList();
 
