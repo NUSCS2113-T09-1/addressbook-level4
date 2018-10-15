@@ -1,4 +1,5 @@
 package seedu.address.commons.exceptions;
+
 /**
  * Represents an error during conversion of machines data from xml
  */

@@ -29,6 +29,7 @@ import seedu.address.logic.commands.job.DeleteJobCommand;
 import seedu.address.logic.commands.job.FindJobCommand;
 import seedu.address.logic.commands.job.ListJobsCommand;
 import seedu.address.logic.commands.machine.AddMachineCommand;
+import seedu.address.logic.commands.machine.EditMachineCommand;
 import seedu.address.logic.commands.machine.FindMachineCommand;
 import seedu.address.logic.commands.machine.ListMachinesCommand;
 import seedu.address.logic.parser.admin.AddAdminCommandParser;
@@ -40,6 +41,7 @@ import seedu.address.logic.parser.job.AddJobCommandParser;
 import seedu.address.logic.parser.job.DeleteJobCommandParser;
 import seedu.address.logic.parser.job.FindJobCommandParser;
 import seedu.address.logic.parser.machine.AddMachineCommandParser;
+import seedu.address.logic.parser.machine.EditMachineCommandParser;
 import seedu.address.logic.parser.machine.FindMachineCommandParser;
 
 /**
@@ -128,6 +130,9 @@ public class AddressBookParser {
 
         case ListMachinesCommand.COMMAND_WORD:
             return new ListMachinesCommand();
+
+         case EditMachineCommand.COMMAND_WORD:
+            return new EditMachineCommandParser().parse(arguments);
 
         case AddJobCommand.COMMAND_WORD:
             return new AddJobCommandParser().parse(arguments);

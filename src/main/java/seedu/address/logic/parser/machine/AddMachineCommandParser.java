@@ -19,6 +19,7 @@ import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.job.Job;
 import seedu.address.model.machine.Machine;
 import seedu.address.model.machine.MachineName;
+import seedu.address.model.machine.MachineStatus;
 import seedu.address.model.tag.Tag;
 
 
@@ -31,19 +32,20 @@ public class AddMachineCommandParser implements Parser<AddMachineCommand> {
     /**
      * Parses the given {@code String} of arguments in the context of the AddMachineCommand
      * and returns an AddMachineCommand object for execution
+     *
      * @throws ParseException if the user input does not conform the expected format
      */
 
     public AddMachineCommand parse(String args) throws ParseException {
         ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_MACHINE_STATUS);
 
-        if (!arePrefixesPresent(argMultimap, PREFIX_NAME, PREFIX_MACHINE_STATUS)
-                || !argMultimap.getPreamble().isEmpty()) {
+        if (!arePrefixesPresent(argMultimap, PREFIX_NAME, PREFIX_MACHINE_STATUS) || !argMultimap.getPreamble()
+                .isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddMachineCommand.MESSAGE_USAGE));
         }
 
         MachineName name = ParserUtil.parseMachineName(argMultimap.getValue(PREFIX_NAME).get());
-        Boolean machineStatus = ParserUtil.parseMachineStatus(argMultimap.getValue(PREFIX_MACHINE_STATUS).get());
+        MachineStatus machineStatus = ParserUtil.parseMachineStatus(argMultimap.getValue(PREFIX_MACHINE_STATUS).get());
         ArrayList<Job> jobs = new ArrayList<>();
         Set<Tag> tags = new HashSet<>();
         Machine machine = new Machine(name, jobs, tags, machineStatus);

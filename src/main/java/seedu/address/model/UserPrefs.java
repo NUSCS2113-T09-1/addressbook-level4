@@ -12,10 +12,10 @@ import seedu.address.commons.core.GuiSettings;
 public class UserPrefs {
 
     private GuiSettings guiSettings;
-    private Path addressBookFilePath = Paths.get("data" , "addressbook.xml");
-    private Path makerManagerMachinesFilePath = Paths.get("data", "makerManagerAdmins.xml");
-    private Path makerManagerAdminsFilePath = Paths.get("data", "makerManagerAdmins.xml");
-    private Path makerManagerJobsFilePath = Paths.get("data", "makerManagerJobs.xml");
+    private Path addressBookFilePath;
+    private Path makerManagerMachinesFilePath;
+    private Path makerManagerAdminsFilePath;
+    private Path makerManagerJobsFilePath;
 
 
     public UserPrefs() {
@@ -33,6 +33,8 @@ public class UserPrefs {
     public void setGuiSettings(double width, double height, int x, int y) {
         guiSettings = new GuiSettings(width, height, x, y);
     }
+
+    // ================================ file path methods ================================= //
 
     public Path getAddressBookFilePath() {
         return addressBookFilePath;
@@ -65,6 +67,8 @@ public class UserPrefs {
     public void setMakerManagerAdminsFilePath(Path makerManagerAdminsFilePath) {
         this.makerManagerAdminsFilePath = makerManagerAdminsFilePath;
     }
+
+    // ================================ others =========================================== //
 
     @Override
     public boolean equals(Object other) {
