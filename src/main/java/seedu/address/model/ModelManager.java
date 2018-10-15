@@ -147,6 +147,12 @@ public class ModelManager extends ComponentManager implements Model {
         return versionedAddressBook.findJob(name);
     }
 
+    @Override
+    public boolean hasJob(Job job) {
+        requireNonNull(job);
+        return versionedAddressBook.hasJob(job);
+    }
+
 
     // ============================== Machine methods ======================================= //
 

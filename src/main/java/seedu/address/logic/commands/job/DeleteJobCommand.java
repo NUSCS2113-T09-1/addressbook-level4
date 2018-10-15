@@ -42,7 +42,7 @@ public class DeleteJobCommand extends Command {
         }
 
         Job jobToDelete = lastShownList.get(targetIndex.getZeroBased());
-        model.deleteJob(jobToDelete);
+        model.removeJob(jobToDelete);
         model.commitAddressBook();
         return new CommandResult(String.format(MESSAGE_DELETE_JOB_SUCCESS, jobToDelete));
     }

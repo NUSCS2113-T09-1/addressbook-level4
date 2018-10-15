@@ -104,6 +104,14 @@ public class AddressBook implements ReadOnlyAddressBook {
         setAdmins(newData.getAdminList());
     }
 
+    /**
+     * Returns true if a job with the same identity as {@code job} exists in the address book.
+     */
+    public boolean hasJob(Job job) {
+        requireNonNull(job);
+        return jobs.contains(job);
+    }
+
     //======================== person methods ================================//
 
     /**
