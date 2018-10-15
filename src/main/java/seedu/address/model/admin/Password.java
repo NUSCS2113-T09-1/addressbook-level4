@@ -1,5 +1,7 @@
 package seedu.address.model.admin;
 
+import static java.util.Objects.requireNonNull;
+
 /**
  * Represents the hash of the password of an admin
  */
@@ -8,6 +10,7 @@ public class Password {
     private String value;
 
     public Password(String password) {
+        requireNonNull(password);
         this.value = password;
     }
 

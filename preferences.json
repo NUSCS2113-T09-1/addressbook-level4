@@ -1,0 +1,14 @@
+{
+  "guiSettings" : {
+    "windowWidth" : 1550.4000244140625,
+    "windowHeight" : 838.4000244140625,
+    "windowCoordinates" : {
+      "x" : -7,
+      "y" : -7
+    }
+  },
+  "addressBookFilePath" : "data\\addressbook.xml",
+  "makerManagerMachinesFilePath" : "data\\makerManagerMachines.xml",
+  "makerManagerAdminsFilePath" : "data\\makerManagerAdmins.xml",
+  "makerManagerJobsFilePath" : "data\\makerManagerJobs.xml"
+}
