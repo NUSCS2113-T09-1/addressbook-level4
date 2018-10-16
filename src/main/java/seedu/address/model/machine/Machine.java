@@ -23,8 +23,8 @@ public class Machine {
      * otherwise " " (a blank string) becomes a valid input.
      */
     public static final String NAME_VALIDATION_REGEX = "[\\p{Alnum}][\\p{Alnum} ]*";
-    public static final String MESSAGE_NAME_CONSTRAINTS =
-            "Names should only contain alphanumeric characters and spaces, "
+    public static final String MESSAGE_MACHINENAME_CONSTRAINTS =
+            "Machine names should only contain alphanumeric characters and spaces, "
                     + "and it should not be blank";
     public static final String MESSAGE_WRONG_STATUS =
             "Status can only contain 'ENABLED' or 'DISABLED'"
@@ -49,6 +49,18 @@ public class Machine {
         this.jobs.addAll(jobs);
         this.tags.addAll(tags);
         this.status = status;
+    }
+
+    public Machine(String machineName) {
+        this.machineName = new MachineName(machineName);
+        this.status = MachineStatus.ENABLED;
+    }
+
+    /**
+     * Returns true if a given string is a valid name.
+     */
+    public static boolean isValidMachine(String test) {
+        return test.matches(NAME_VALIDATION_REGEX);
     }
 
     public MachineName getName() {
@@ -103,6 +115,16 @@ public class Machine {
         return otherMachine.getName().equals(getName())
                 && otherMachine.getJobs().equals(getJobs())
                 && otherMachine.getTags().equals(getTags());
+    }
+
+    /**
+     * this method is meant for compare if two machines have the same name
+     * two machines are treated as the same one once they have the same name
+     * @param machine
+     * @return boolean
+     */
+    public boolean sameMachine(Machine machine) {
+        return this.getName().equals(machine.getName());
     }
 
     @Override

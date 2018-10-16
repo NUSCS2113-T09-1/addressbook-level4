@@ -124,32 +124,7 @@ public class AddCommandTest {
         }
 
         @Override
-        public void addJob(Job job) {
-            throw new AssertionError("This method should not be called.");
-        }
-
-        @Override
-        public void removeJob(Job job) {
-            throw new AssertionError("This method should not be called.");
-        }
-
-        @Override
-        public void updateJob(Job oldJob, Job updatedJob) {
-
-        }
-
-        @Override
-        public Job findJob(JobName name) {
-            return null;
-        }
-
-        @Override
         public void addMachine(Machine machine) {
-            throw new AssertionError("This method should not be called");
-        }
-
-        @Override
-        public void updateMachine(Machine target, Machine editedMachine) {
             throw new AssertionError("This method should not be called");
         }
 
@@ -157,10 +132,17 @@ public class AddCommandTest {
         public void removeMachine(Machine machine) {
             throw new AssertionError("This method should not be called");
         }
+
         @Override
-        public boolean hasMachine(Machine machine) {
-            throw new AssertionError("This method should not be called");
+        public void updateMachine(Machine target, Machine editedMachine) {
+            throw new AssertionError("This method should not be called.");
         }
+
+        @Override
+        public boolean hasMachine(Machine person) {
+            throw new AssertionError("This method should not be called.");
+        }
+
 
         @Override
         public void addAdmin(Admin admin) {
@@ -175,6 +157,30 @@ public class AddCommandTest {
         @Override
         public void updateAdmin(Admin admin, Admin updatedAdmin) {
             throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void addJob(Job job) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void removeJob(Job job) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void updateJob(Job job, Job updatedJob) {
+            throw new AssertionError("This method should not be called.");
+        }
+        @Override
+        public boolean hasJob(Job job) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public Job findJob(JobName jobName) {
+            return null;
         }
 
         @Override
@@ -218,16 +224,6 @@ public class AddCommandTest {
         }
 
         @Override
-        public ObservableList<Admin> getFilteredAdminList() {
-            throw new AssertionError("This method should not be called.");
-        }
-
-        @Override
-        public void updateFilteredAdminList(Predicate<Admin> predicate) {
-            throw new AssertionError("This method should not be called");
-        }
-
-        @Override
         public ObservableList<Machine> getFilteredMachineList() {
             throw new AssertionError("This method should not be called.");
         }
@@ -239,12 +235,22 @@ public class AddCommandTest {
 
         @Override
         public ObservableList<Job> getFilteredJobList() {
-            return null;
+            throw new AssertionError("This method should not be called.");
         }
 
         @Override
         public void updateFilteredJobList(Predicate<Job> predicate) {
+            throw new AssertionError("This method should not be called.");
+        }
 
+        @Override
+        public ObservableList<Admin> getFilteredAdminList() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void updateFilteredAdminList(Predicate<Admin> predicate) {
+            throw new AssertionError("This method should not be called.");
         }
 
         @Override

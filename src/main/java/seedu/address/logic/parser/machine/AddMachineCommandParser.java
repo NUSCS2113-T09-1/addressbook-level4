@@ -23,6 +23,7 @@ import seedu.address.model.machine.MachineStatus;
 import seedu.address.model.tag.Tag;
 
 
+
 /**
  * Parses input arguments and creates a new AddMachineCommand object
  */
@@ -39,7 +40,7 @@ public class AddMachineCommandParser implements Parser<AddMachineCommand> {
         ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_MACHINE_STATUS);
 
         if (!arePrefixesPresent(argMultimap, PREFIX_NAME, PREFIX_MACHINE_STATUS) || !argMultimap.getPreamble()
-            .isEmpty()) {
+                .isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddMachineCommand.MESSAGE_USAGE));
         }
 

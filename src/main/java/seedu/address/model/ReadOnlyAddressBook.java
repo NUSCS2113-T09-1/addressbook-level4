@@ -32,8 +32,9 @@ public interface ReadOnlyAddressBook {
     ObservableList<Machine> getMachineList();
 
     /**
-     * Returns an unmodifiable view of jobs list
-     * This list will not contain any duplicate jobs
+     * Returns an unmodifiable view of the jobs list.
+     * This list will not contain any duplicate jobs.
+     *
      */
     ObservableList<Job> getJobList();
 }

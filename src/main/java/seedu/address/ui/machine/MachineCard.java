@@ -2,18 +2,10 @@ package seedu.address.ui.machine;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
-import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
-import javafx.scene.paint.Paint;
 import seedu.address.model.machine.Machine;
-import seedu.address.model.machine.MachineStatus;
 import seedu.address.ui.UiPart;
-
 
 
 /**
@@ -40,41 +32,14 @@ public class MachineCard extends UiPart<Region> {
     @FXML
     private Label id;
     @FXML
-    private FlowPane machineStatus;
+    private Label status;
 
     public MachineCard(Machine machine, int displayIndex) {
         super(FXML);
         this.machine = machine;
         id.setText(displayIndex + ". ");
         machineName.setText(machine.getName().fullName);
-        Label machineStatusLabel = new Label(machine.getStatus().toString());
-        machineStatusLabel.setStyle("-fx-font: 12 arial;"
-                + "-fx-text-fill: black;"
-                + "-fx-padding: 2;"
-                + "-fx-text-alignment: center");
-        machineStatusLabel.setBackground(new Background(
-                new BackgroundFill(
-                        Paint.valueOf(machine.getStatus().equals(MachineStatus.ENABLED) ? "#0ec10e" : "#dd0404"),
-                        new CornerRadii(2),
-                        new javafx.geometry.Insets(0))));
-
-        Label machineAvailabilityLabel = new Label(
-                machine.getStatus().equals(MachineStatus.ENABLED) ? "Available" : "Unavailable");
-        machineAvailabilityLabel.setStyle("-fx-font: 12 arial;"
-                + "-fx-text-fill: black;"
-                + "-fx-padding: 2;"
-                + "-fx-text-alignment: center");
-
-        machineAvailabilityLabel.setBackground(new Background(
-                new BackgroundFill(
-                        Paint.valueOf(machine.getStatus().equals(MachineStatus.ENABLED) ? "#0ec10e" : "#dd0404"),
-                        new CornerRadii(2),
-                        new javafx.geometry.Insets(0))));
-
-        machineStatus.getChildren().add(machineStatusLabel);
-        machineStatus.getChildren().add(machineAvailabilityLabel);
-        machineStatus.setHgap(4);
-
+        status.setText(machine.getStringStatus());
     }
 
     @Override

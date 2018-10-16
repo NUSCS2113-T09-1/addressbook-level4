@@ -158,6 +158,11 @@ public class RemoveAdminCommandTest {
         }
 
         @Override
+        public boolean hasJob(Job job) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public void addMachine(Machine machine) {
             throw new AssertionError("This method should not be called");
         }

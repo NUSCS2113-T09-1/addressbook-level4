@@ -1,5 +1,5 @@
 {
-  "appTitle" : "Address App",
+  "appTitle" : "Maker Manager",
   "logLevel" : "INFO",
   "userPrefsFilePath" : "preferences.json"
 }

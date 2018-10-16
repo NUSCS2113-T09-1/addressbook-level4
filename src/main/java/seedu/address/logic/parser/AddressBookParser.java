@@ -24,6 +24,10 @@ import seedu.address.logic.commands.admin.LoginCommand;
 import seedu.address.logic.commands.admin.LogoutCommand;
 import seedu.address.logic.commands.admin.RemoveAdminCommand;
 import seedu.address.logic.commands.admin.UpdatePasswordCommand;
+import seedu.address.logic.commands.job.AddJobCommand;
+import seedu.address.logic.commands.job.DeleteJobCommand;
+import seedu.address.logic.commands.job.FindJobCommand;
+import seedu.address.logic.commands.job.ListJobsCommand;
 import seedu.address.logic.commands.machine.AddMachineCommand;
 import seedu.address.logic.commands.machine.EditMachineCommand;
 import seedu.address.logic.commands.machine.FindMachineCommand;
@@ -33,6 +37,9 @@ import seedu.address.logic.parser.admin.LoginCommandParser;
 import seedu.address.logic.parser.admin.RemoveAdminCommandParser;
 import seedu.address.logic.parser.admin.UpdatePasswordCommandParser;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.logic.parser.job.AddJobCommandParser;
+import seedu.address.logic.parser.job.DeleteJobCommandParser;
+import seedu.address.logic.parser.job.FindJobCommandParser;
 import seedu.address.logic.parser.machine.AddMachineCommandParser;
 import seedu.address.logic.parser.machine.EditMachineCommandParser;
 import seedu.address.logic.parser.machine.FindMachineCommandParser;
@@ -124,8 +131,20 @@ public class AddressBookParser {
         case ListMachinesCommand.COMMAND_WORD:
             return new ListMachinesCommand();
 
-        case EditMachineCommand.COMMAND_WORD:
+         case EditMachineCommand.COMMAND_WORD:
             return new EditMachineCommandParser().parse(arguments);
+
+        case AddJobCommand.COMMAND_WORD:
+            return new AddJobCommandParser().parse(arguments);
+
+        case DeleteJobCommand.COMMAND_WORD:
+            return new DeleteJobCommandParser().parse(arguments);
+
+        case FindJobCommand.COMMAND_WORD:
+            return new FindJobCommandParser().parse(arguments);
+
+        case ListJobsCommand.COMMAND_WORD:
+            return new ListJobsCommand();
 
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);

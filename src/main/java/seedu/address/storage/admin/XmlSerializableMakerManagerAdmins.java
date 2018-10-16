@@ -13,8 +13,7 @@ import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.admin.Admin;
 
 /**
- * An Immutable MakerManagerAdmins that is serializable to XML format
- * meant specifically for admins
+ * An Immutable MakerManagerAdminw that is serializable to XML format
  */
 @XmlRootElement(name = "makermanager_admins")
 public class XmlSerializableMakerManagerAdmins {
@@ -55,7 +54,7 @@ public class XmlSerializableMakerManagerAdmins {
             if (addressBook.hasAdmin(admin)) {
                 throw new IllegalValueException(MESSAGE_DUPLICATE_ADMIN);
             }
-            addressBook.addAdminWithoutRehash(admin);
+            addressBook.addAdmin(admin);
         }
 
         return addressBook;

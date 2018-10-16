@@ -11,10 +11,10 @@ import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.AddressBook;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.person.Person;
+import seedu.address.storage.admin.XmlAdaptedAdmin;
 
 /**
  * An Immutable AddressBook that is serializable to XML format
- * meant specifically for persons
  */
 @XmlRootElement(name = "addressbook")
 public class XmlSerializableAddressBook {
@@ -23,15 +23,15 @@ public class XmlSerializableAddressBook {
 
     @XmlElement
     private List<XmlAdaptedPerson> persons;
+    private List<XmlAdaptedAdmin> admins;
 
     /**
      * Creates an empty XmlSerializableAddressBook.
      * This empty constructor is required for marshalling.
-     * TODO: What is marshalling? (Marshalling is the process of
-     * TODO: parsing the data according to the format given by the
-     * TODO fxml elements
+     * TODO: What is marshalling?
      */
     public XmlSerializableAddressBook() {
+        admins = new ArrayList<>();
         persons = new ArrayList<>();
     }
 

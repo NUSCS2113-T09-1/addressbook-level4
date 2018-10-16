@@ -10,6 +10,7 @@ import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.exceptions.DataConversionException;
 import seedu.address.commons.util.XmlUtil;
 import seedu.address.storage.admin.XmlSerializableMakerManagerAdmins;
+import seedu.address.storage.job.XmlSerializableMakerManagerJobs;
 import seedu.address.storage.machine.XmlSerializableMakerManagerMachines;
 
 /**
@@ -23,30 +24,6 @@ public class XmlFileStorage {
      * Saves the given addressbook data to the specified file.
      */
     public static void saveDataToFile(Path file, XmlSerializableAddressBook addressBook)
-            throws FileNotFoundException {
-        try {
-            XmlUtil.saveDataToFile(file, addressBook);
-        } catch (JAXBException e) {
-            throw new AssertionError("Unexpected exception " + e.getMessage(), e);
-        }
-    }
-
-    /**
-     * Saves the given admins data to the specified file.
-     */
-    public static void saveDataToFile(Path file, XmlSerializableMakerManagerAdmins addressBook)
-            throws FileNotFoundException {
-        try {
-            XmlUtil.saveDataToFile(file, addressBook);
-        } catch (JAXBException e) {
-            throw new AssertionError("Unexpected exception " + e.getMessage(), e);
-        }
-    }
-
-    /**
-     * Saves the given admins data to the specified file.
-     */
-    public static void saveDataToFile(Path file, XmlSerializableMakerManagerMachines addressBook)
             throws FileNotFoundException {
         try {
             XmlUtil.saveDataToFile(file, addressBook);
@@ -86,7 +63,7 @@ public class XmlFileStorage {
             throws DataConversionException,
             FileNotFoundException {
         try {
-            logger.info("Getting serialized ADMIN data from custom xml file");
+            logger.info("Getting serialized data from custom xml file");
             return XmlUtil.getDataFromFile(file, XmlSerializableMakerManagerAdmins.class);
         } catch (JAXBException e) {
             throw new DataConversionException(e);
@@ -110,12 +87,38 @@ public class XmlFileStorage {
      * Returns makerManager address book in the file or an empty address book
      */
 
-    public static XmlSerializableMakerManagerMachines loadMakerManagerMachineDataFromSaveFile(Path file)
+    public static XmlSerializableMakerManagerMachines loadMakerManagerDataFromSaveFile(Path file)
             throws DataConversionException,
             FileNotFoundException {
         try {
-            logger.info("Getting serialized MACHINE data from custom xml file");
+            logger.info("Getting serialized data from custom xml file");
             return XmlUtil.getDataFromFile(file, XmlSerializableMakerManagerMachines.class);
+        } catch (JAXBException e) {
+            throw new DataConversionException(e);
+        }
+    }
+
+    /**
+     * Saves the given maker manager jobs data to the specified file
+     */
+    public static void saveMakerManagerJobDataToFile(Path file, XmlSerializableMakerManagerJobs addressBook)
+            throws FileNotFoundException {
+        try {
+            XmlUtil.saveDataToFile(file, addressBook);
+        } catch (JAXBException e) {
+            throw  new AssertionError("Unexpected exception" + e.getMessage(), e);
+        }
+    }
+    /**
+     * Returns makerManager job_file in the file or an empty job_file
+     */
+
+    public static XmlSerializableMakerManagerJobs loadMakerManagerJobDataFromSaveFile(Path file)
+            throws DataConversionException,
+            FileNotFoundException {
+        try {
+            logger.info("Getting serialized data from custom xml file");
+            return XmlUtil.getDataFromFile(file, XmlSerializableMakerManagerJobs.class);
         } catch (JAXBException e) {
             throw new DataConversionException(e);
         }

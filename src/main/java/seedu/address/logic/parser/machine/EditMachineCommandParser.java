@@ -5,12 +5,10 @@ import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT
 import static seedu.address.logic.parser.CliSyntax.PREFIX_MACHINE_STATUS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
-
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Optional;
 import java.util.Set;
-
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.machine.EditMachineCommand;
@@ -35,31 +33,32 @@ public class EditMachineCommandParser implements Parser<EditMachineCommand> {
      */
     public EditMachineCommand parse(String args) throws ParseException {
         requireNonNull(args);
-        ArgumentMultimap argMultimap = ArgumentTokenizer
-            .tokenize(args, PREFIX_NAME, PREFIX_TAG, PREFIX_MACHINE_STATUS);
 
+        ArgumentMultimap argMultimap = ArgumentTokenizer
+                .tokenize(args, PREFIX_NAME, PREFIX_TAG, PREFIX_MACHINE_STATUS);
         Index index;
 
         try {
             index = ParserUtil.parseIndex(argMultimap.getPreamble());
         } catch (ParseException pe) {
             throw new ParseException(
-                String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditMachineCommand.MESSAGE_USAGE),
-                pe);
+                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditMachineCommand.MESSAGE_USAGE),
+                    pe);
         }
 
         EditMachineDescriptor editMachineDescriptor = new EditMachineDescriptor();
+
         if (argMultimap.getValue(PREFIX_NAME).isPresent()) {
             editMachineDescriptor
-                .setName(ParserUtil.parseMachineName(argMultimap.getValue(PREFIX_NAME).get()));
+                    .setName(ParserUtil.parseMachineName(argMultimap.getValue(PREFIX_NAME).get()));
         }
 
         parseTagsForEdit(argMultimap.getAllValues(PREFIX_TAG))
-            .ifPresent(editMachineDescriptor::setTags);
+                .ifPresent(editMachineDescriptor::setTags);
 
         if (argMultimap.getValue(PREFIX_MACHINE_STATUS).isPresent()) {
             editMachineDescriptor.setStatus(
-                ParserUtil.parseMachineStatus(argMultimap.getValue(PREFIX_MACHINE_STATUS).get()));
+                    ParserUtil.parseMachineStatus(argMultimap.getValue(PREFIX_MACHINE_STATUS).get()));
         }
 
         if (!editMachineDescriptor.isAnyFieldEdited()) {
@@ -76,13 +75,11 @@ public class EditMachineCommandParser implements Parser<EditMachineCommand> {
      */
     private Optional<Set<Tag>> parseTagsForEdit(Collection<String> tags) throws ParseException {
         assert tags != null;
-
         if (tags.isEmpty()) {
             return Optional.empty();
         }
         Collection<String> tagSet = tags.size() == 1 && tags.contains("") ? Collections
-            .emptySet() : tags;
+                .emptySet() : tags;
         return Optional.of(ParserUtil.parseTags(tagSet));
     }
-
 }

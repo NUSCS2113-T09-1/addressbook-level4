@@ -104,6 +104,14 @@ public class AddressBook implements ReadOnlyAddressBook {
         setAdmins(newData.getAdminList());
     }
 
+    /**
+     * Returns true if a job with the same identity as {@code job} exists in the address book.
+     */
+    public boolean hasJob(Job job) {
+        requireNonNull(job);
+        return jobs.contains(job);
+    }
+
     //======================== person methods ================================//
 
     /**
@@ -258,12 +266,16 @@ public class AddressBook implements ReadOnlyAddressBook {
     }
 
     /**
-     * Updates the job
+     * Replaces the given job {@code target} in the list with {@code editedJob}.
+     * {@code target} must exist in the address book.
+     * The job identity of {@code editedJob} must not be the same as another existing
+     * Job in the address book.
      */
-    public void updateJob(Job oldJob, Job updatedJob) {
-        jobs.updateJob(oldJob, updatedJob);
-    }
+    public void updateJob(Job target, Job editedJob) {
+        requireNonNull(editedJob);
 
+        jobs.setJob(target, editedJob);
+    }
 
     //======================== get lists methods ===========================//
     @Override
@@ -291,8 +303,8 @@ public class AddressBook implements ReadOnlyAddressBook {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-            || (other instanceof AddressBook // instanceof handles nulls
-            && persons.equals(((AddressBook) other).persons));
+            // || (other instanceof AddressBook // instanceof handles nulls
+            && persons.equals(((AddressBook) other).persons);
         //TODO: refine later
     }
 
@@ -310,5 +322,3 @@ public class AddressBook implements ReadOnlyAddressBook {
     }
 
 }
-
-
