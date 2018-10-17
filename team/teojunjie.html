@@ -355,9 +355,50 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">[Proposed] Data Encryption</a></h3>
+<h3 id="password-encryption"><a class="link" href="#password-encryption">Password Encryption</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
 <div class="paragraph">
-<p><em>{Explain here how the data encryption feature will be implemented}</em></p>
+<p>The password is encrypted using salting and hashing. The low-level implementation of this is handled by the popular open
+source library jBcrypt. The library was chosen for having a fairly simple API for generating hashes and comparing
+passwords to stored hashes.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-where-to-encrypt"><a class="link" href="#aspect-where-to-encrypt">Aspect: Where to encrypt</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Encrypt it as it is being added to in-Memory address book.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Hashing needs to be done only once, after going through ModelManager. Storage Manager does not change. Able to do password validation and prevent unnecessary computations.</p>
+</li>
+<li>
+<p>Cons: The password information is unprotected as it passes through UI and Logic.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Encrypt it in UI</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More secure transfer of passwords through the pipeline.</p>
+</li>
+<li>
+<p>Cons: UI is heavy, and may become slower if hashing is too taxing on the system.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -370,4 +411,4 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-17 06:26:16 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-17 16:37:37 UTC</div></div></div></body></html>
