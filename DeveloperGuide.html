@@ -30,9 +30,10 @@
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#undo-redo-feature">3.1. Undo/Redo feature</a></li>
-<li><a href="#password-encryption">3.2. Password Encryption</a></li>
-<li><a href="#logging">3.3. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.4. Configuration</a></li>
+<li><a href="#add-machines-feature">3.2. Add Machines feature</a></li>
+<li><a href="#password-encryption">3.3. Password Encryption</a></li>
+<li><a href="#logging">3.4. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.5. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -777,9 +778,42 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="password-encryption"><a class="link" href="#password-encryption">3.2. Password Encryption</a></h3>
+<h3 id="add-machines-feature"><a class="link" href="#add-machines-feature">3.2. Add Machines feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.2.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>Adding machines is facilitated by <code>addMachineCommand</code>. It extends command with the instantiation of a new <code>machine</code>, and addition of the new <code>machine</code> to the model. Additionally, the class contains all the static information that describes the command word and syntax, proper use of the command, and syntax error messages.</p>
+</div>
+<div class="paragraph">
+<p>The main feature of the <code>addMachineCommand</code> class is <code>execute(Model, CommandHistory)</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following describes a main success case of the <code>addMachineCommand</code>, from the user input to command execution, assuming that the app has already initialized:</p>
+</div>
+<div class="paragraph">
+<p>Step 1. User keys in addMachine command and presses enter. The <code>commandBox</code> object will call <code>execute()</code> of the <code>LogicManager</code> object, passing the user input as a parameter.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. <code>LogicManager.execute()</code> calls the <code>parseCommand()</code> method of <code>AddressBookParser</code> object, passing the user input as a parameter.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. <code>parseCommand()</code> will then compare the command word of the user input using regex, and instantiate the appropriate <code>commandParser</code>. In this case, the <code>addMachineCommandParser</code> will be instantiated. <code>parseCommand()</code> will then return <code>addMachineCommandParser.parse()</code>, with the user input being passed in as parameters of <code>parse()</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. <code>Parse()</code> will split the user input into is component tokens using <code>ArgumentTokenizer()</code>. It will then create new instances of <code>MachineName</code> object, <code>MachineStatus</code> object, an <code>Arraylist</code> of <code>Jobs</code>, a <code>Set</code> of <code>Tags</code>. The pointers to these objects will be passed into the constructor for a new <code>Machine</code> object. Finally, <code>Parse()</code> will then instantiate and return a new <code>AddMachineCommand</code> object, passing the <code>Machine</code> object into its constructor.</p>
+</div>
+<div class="paragraph">
+<p>Step 5.  This <code>addMachineCommand</code> is the returned to <code>LogicManager.execute()</code>, with in turn calls and returns <code>addMachineCommand.execute()</code>, passing the pointer to the <code>Model</code>, and the new <code>Machine</code> object as parameters.</p>
+</div>
+<div class="paragraph">
+<p>Step 6. <code>addMachineCommand.execute()</code> adds the new <code>Machine</code> object into the model via <code>model.addMachine()</code>. It then returns a new <code>CommandResult</code> containing pointers to the Success Message and the Machine object.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="password-encryption"><a class="link" href="#password-encryption">3.3. Password Encryption</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.3.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The password is encrypted using salting and hashing. The low-level implementation of this is handled by the popular open
 source library jBcrypt. The library was chosen for having a fairly simple API for generating hashes and comparing
@@ -787,7 +821,7 @@ passwords to stored hashes.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.3.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-where-to-encrypt"><a class="link" href="#aspect-where-to-encrypt">Aspect: Where to encrypt</a></h5>
 <div class="ulist">
@@ -824,14 +858,14 @@ passwords to stored hashes.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.3. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.4. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.4, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.5, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -862,7 +896,7 @@ passwords to stored hashes.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.4. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.5. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -2755,4 +2789,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-17 16:37:37 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-17 16:47:16 UTC</div></div></div></body></html>
