@@ -17,5 +17,5 @@ classes/
 src/main/resources/docs/
 out/
 
-config\.json
+/config\.json
 preferences\.json

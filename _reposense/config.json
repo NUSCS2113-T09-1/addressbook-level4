@@ -1,0 +1,25 @@
+{
+  "authors":
+  [
+    {
+      "githubId": "Ftywan",
+      "displayName": "FU ...UAN",
+      "authorNames": ["Ftywan"]
+    },
+    {
+      "githubId": "Psyf",
+      "displayName": "SAI...MUD",
+      "authorNames": ["Psyf"]
+    },
+    {
+      "githubId": "trufflepirate",
+      "displayName": "SEA...ANG",
+      "authorNames": ["trufflepirate"]
+    },
+    {
+      "githubId": "teojunjie",
+      "displayName": "TEO...JIE",
+      "authorNames": ["teojunjie", "Teo Jun Jie"]
+    }
+  ]
+}
