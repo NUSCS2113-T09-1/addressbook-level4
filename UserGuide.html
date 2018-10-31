@@ -56,13 +56,13 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p><strong><code>list</code></strong> : lists all contacts</p>
+<p><strong><code>listMachine</code></strong> : lists all machines</p>
 </li>
 <li>
-<p><strong><code>add</code></strong><code>n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code> : adds a contact named <code>John Doe</code> to the Address Book.</p>
+<p><strong><code>addJob</code></strong><code>n/iDCP m/TYPrinter on/TIAN YUAN pr/HIGH d/1.5 jn/This is for the iDCP project t/iDCP</code> : adds a Job named <code>iDCP</code> to the MakerManager.</p>
 </li>
 <li>
-<p><strong><code>delete</code></strong><code>3</code> : deletes the 3rd contact shown in the current list</p>
+<p><strong><code>manageJob</code></strong><code>iDCP start</code> : starts a Job named <code>iDCP</code></p>
 </li>
 <li>
 <p><strong><code>exit</code></strong> : exits the app</p>
@@ -115,24 +115,23 @@ Give the user guidance as to what (s)he can do with makerManager<br></p>
 </div>
 </li>
 <li>
-<p><strong>[NOT IMPLEMENTED YET]Adding Print:</strong>
-Add a print job to the queue.<br></p>
+<p><strong>Adding a print Job:</strong>
+Adds a print job to the machine&#8217;s queue.<br></p>
 <div class="literalblock">
 <div class="content">
-<pre>Format: add_print n/PRINT_NAME m/MACHINE_NAME d/PRINT_DURATION [s/SPECIAL_NOTES] &lt;p/PRIORITY&gt;</pre>
+<pre>Format: addJob n/JOB NAME m/MACHINE NAME on/JOB OWNER NAME pr/JOB PRIORITY d/JOB DURATION jn/JOB NOTE [t/TAG]</pre>
 </div>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>Examples:  +
-add_print n/myprint m/printer_1 d/13:00 s/use red filament p/1 +
-add_print n/myprint m/printer_2 d/2:00 s/use blue filament</pre>
+<pre>Examples:
+addJob n/iDCP m/TYPrinter on/TIAN YUAN pr/HIGH d/1.5 jn/This is for the iDCP project t/iDCP</pre>
 </div>
 </div>
 </li>
 <li>
-<p><strong>Starting a Print:</strong>
-Starts an existing print in the queue.<br></p>
+<p><strong>Starting a print Job:</strong>
+Starts an existing print job in the queue.<br></p>
 <div class="literalblock">
 <div class="content">
 <pre>Format: manageJob JOBNAME start</pre>
@@ -176,7 +175,38 @@ manageJob myPrint restart</pre>
 </div>
 </li>
 <li>
-<p><strong>[WIP]Listing Prints:</strong>
+<p><strong><code>[WIP][DISABLED]</code> Deleting a Print:</strong>
+deletes an existing print in the queue.<br></p>
+<div class="literalblock">
+<div class="content">
+<pre>Format: manageJob JOBNAME delete</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Examples:
+manageJob myPrint delete
+manageJob anotherPrint delete</pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Requests a print job to be deleted by admin:</strong>
+Tags a print job with a "requestDeletion" tag that is to be removed by admin</p>
+<div class="literalblock">
+<div class="content">
+<pre>Format: requestDeletion n/JOB NAME</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Examples:
+requestDeletion n/iDCP</pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong><code>[WIP][DISABLED]</code> Listing Prints:</strong>
 Lists prints with optional filters. Currently lists persons.<br></p>
 <div class="literalblock">
 <div class="content">
@@ -192,7 +222,7 @@ list p/1</pre>
 </div>
 </li>
 <li>
-<p><strong>[NOT IMPLEMENTED YET]Listing History of Prints:</strong>
+<p><strong><code>[WIP][DISABLED]</code> Listing History of Prints:</strong>
 Lists all completed prints with optional filters.<br></p>
 <div class="literalblock">
 <div class="content">
@@ -208,7 +238,7 @@ list_history p/1</pre>
 </div>
 </li>
 <li>
-<p><strong>[NOT IMPLEMENTED YET]Editing a Print:</strong>
+<p><strong><code>[WIP][DISABLED]</code> Editing a Print:</strong>
 Edits an existing print in the queue.<br></p>
 <div class="literalblock">
 <div class="content">
@@ -220,18 +250,6 @@ Edits an existing print in the queue.<br></p>
 <pre>Examples:
 edit 1 n/myprint m/printer_1 s/red filament only p/1 +
 edit 2 p/1</pre>
-</div>
-</div>
-</li>
-<li>
-<p><strong>[NOT IMPLEMENTED YET]Deleting a Print:</strong>
-deletes an existing print in the queue.<br>
-Format: del INDEX</p>
-<div class="literalblock">
-<div class="content">
-<pre>Examples:
-del 1
-del 2</pre>
 </div>
 </div>
 </li>
@@ -302,26 +320,14 @@ Disable admin mode.<br></p>
 </div>
 </li>
 <li>
-<p><strong>Add Admin:</strong></p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Add another admin. Note that PASSWORD has to match some specific validation criteria.<br></p>
-</div>
+<p><strong>Add Admin:</strong>
+Add another admin. Note that PASSWORD has to match some specific validation criteria.<br></p>
 <div class="literalblock">
 <div class="content">
 <pre>Format: addAdmin USERNAME PASSWORD VERIFY_PASSWORD</pre>
 </div>
 </div>
-<div class="olist lowerroman">
-<ol class="lowerroman" type="i">
+</li>
 <li>
 <p><strong>Remove Admin:</strong>
 Removing another admin.<br></p>
@@ -346,47 +352,53 @@ Adds a new machine. All machine names must be unique. Status can only be either 
 <div class="literalblock">
 <div class="content">
 <pre>Format:
-add_machine n/MACHINE_NAME ms/STATUS</pre>
+addMachine n/MACHINE_NAME ms/STATUS</pre>
 </div>
 </div>
 <div class="literalblock">
 <div class="content">
 <pre>Example:
-add_machine n/my_machine ms/ENABLED</pre>
+addMachine n/my_machine ms/ENABLED</pre>
 </div>
 </div>
 </li>
 <li>
-<p><strong>[WIP]Remove Machine:</strong>
+<p><strong><code>[WIP][DISABLED]</code> Remove Machine:</strong>
 removes a machine. <br></p>
 <div class="literalblock">
 <div class="content">
-<pre>Format: remove_machine MACHINE_NAME</pre>
+<pre>Format: removeMachine MACHINE_NAME</pre>
 </div>
 </div>
 <div class="literalblock">
 <div class="content">
 <pre>Example:
-remove_machine my_machine</pre>
+removeMachine my_machine</pre>
 </div>
 </div>
 </li>
 <li>
-<p><strong>[WIP]Change Device Status:</strong>
-Edits an existing machine. All machine names must be unique. Status can only be either “enabled” or “disabled”. At least one optional argument must be present.<br></p>
+<p><strong>Change Device Status:</strong>
+Edits an existing machine. All machine names must be unique. Status can only be either “ENABLED” or “DISABLED”. At least one optional argument must be present.<br></p>
 <div class="literalblock">
 <div class="content">
-<pre>Format: edit_machine MACHINE_NAME [n/MACHINE_NAME] [s/STATUS]</pre>
+<pre>Format: editMachine MACHINE_NAME [n/MACHINE_NAME] [s/STATUS]</pre>
 </div>
 </div>
 <div class="literalblock">
 <div class="content">
 <pre>Example:
-edit_machine my_machine n/my_machine2 s/enabled</pre>
+editMachine my_machine n/my_machine2 s/enabled</pre>
 </div>
 </div>
 </li>
 </ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -408,19 +420,13 @@ edit_machine my_machine n/my_machine2 s/enabled</pre>
 <p>help</p>
 </li>
 <li>
-<p>add_print n/PRINT_NAME m/MACHINE_NAME d/PRINT_DURATION [s/SPECIAL_NOTES] &lt;p/PRIORITY&gt;</p>
+<p>addJob n/PRINT_NAME m/MACHINE_NAME d/PRINT_DURATION [s/SPECIAL_NOTES] &lt;p/PRIORITY&gt;</p>
 </li>
 <li>
-<p>list [n/PRINT_NAME] [m/MACHINE_NAME] [s/SPECIAL_NOTES] [p/PRIORITY]</p>
+<p><code>[WIP][DISABLED]</code> list [n/PRINT_NAME] [m/MACHINE_NAME] [s/SPECIAL_NOTES] [p/PRIORITY]</p>
 </li>
 <li>
-<p>list_history [n/PRINT_NAME] [m/MACHINE_NAME] [s/SPECIAL_NOTES] [p/PRIORITY]</p>
-</li>
-<li>
-<p>edit INDEX [n/PRINT_NAME] [m/MACHINE_NAME] [s/SPECIAL_NOTES] &lt;p/PRIORITY&gt;</p>
-</li>
-<li>
-<p>del INDEX</p>
+<p><code>[WIP][DISABLED]</code> list_history [n/PRINT_NAME] [m/MACHINE_NAME] [s/SPECIAL_NOTES] [p/PRIORITY]</p>
 </li>
 <li>
 <p>exit</p>
@@ -444,7 +450,7 @@ edit_machine my_machine n/my_machine2 s/enabled</pre>
 <p>add_machine n/MACHINE_NAME s/STATUS</p>
 </li>
 <li>
-<p>remove_machine MACHINE_NAME</p>
+<p><code>[WIP][DISABLED]</code> remove_machine MACHINE_NAME</p>
 </li>
 <li>
 <p>edit_machine MACHINE_NAME [n/MACHINE_NAME] [s/STATUS]</p>
@@ -458,7 +464,13 @@ edit_machine my_machine n/my_machine2 s/enabled</pre>
 <li>
 <p>manageJob JOB_NAME restart</p>
 </li>
+<li>
+<p><code>[WIP][DISABLED]</code> manageJob JOB_NAME delete</p>
+</li>
+<li>
+<p>requestDeletion n/iDCP</p>
+</li>
 </ol>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 07:23:27 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 17:41:32 UTC</div></div></div></body></html>
