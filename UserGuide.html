@@ -119,13 +119,28 @@ Give the user guidance as to what (s)he can do with makerManager<br></p>
 Adds a print job to the machine&#8217;s queue.<br></p>
 <div class="literalblock">
 <div class="content">
-<pre>Format: addJob n/JOB NAME m/MACHINE NAME on/JOB OWNER NAME pr/JOB PRIORITY d/JOB DURATION jn/JOB NOTE [t/TAG]</pre>
+<pre>Format: addJob n/JOBNAME m/MACHINENAME on/JOBOWNERNAME pr/JOBPRIORITY d/JOBDURATION jn/JOBNOTE [t/TAG]...</pre>
 </div>
 </div>
 <div class="literalblock">
 <div class="content">
 <pre>Examples:
 addJob n/iDCP m/TYPrinter on/TIAN YUAN pr/HIGH d/1.5 jn/This is for the iDCP project t/iDCP</pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Finding a print Job:</strong>
+Finds all jobs whose names contain any of the specified keywords (case-insensitive) and displays them as a list with index numbers.<br></p>
+<div class="literalblock">
+<div class="content">
+<pre>Format: findJob JOBNAME [JOBNAME]...</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Examples:
+findJob alice bob charlie</pre>
 </div>
 </div>
 </li>
@@ -195,7 +210,7 @@ manageJob anotherPrint delete</pre>
 Tags a print job with a "requestDeletion" tag that is to be removed by admin</p>
 <div class="literalblock">
 <div class="content">
-<pre>Format: requestDeletion n/JOB NAME</pre>
+<pre>Format: requestDeletion n/JOBNAME</pre>
 </div>
 </div>
 <div class="literalblock">
@@ -210,7 +225,7 @@ requestDeletion n/iDCP</pre>
 Lists prints with optional filters. Currently lists persons.<br></p>
 <div class="literalblock">
 <div class="content">
-<pre>Format: list [n/PRINT_NAME] [m/MACHINE_NAME] [s/SPECIAL_NOTES] [p/PRIORITY]</pre>
+<pre>Format: listJob [n/PRINT_NAME] [m/MACHINE_NAME] [s/SPECIAL_NOTES] [p/PRIORITY]</pre>
 </div>
 </div>
 <div class="literalblock">
@@ -242,7 +257,7 @@ list_history p/1</pre>
 Edits an existing print in the queue.<br></p>
 <div class="literalblock">
 <div class="content">
-<pre>Format: edit INDEX [n/PRINT_NAME] [m/MACHINE_NAME] [s/SPECIAL_NOTES] &lt;p/PRIORITY&gt;</pre>
+<pre>Format: editJob INDEX [n/PRINT_NAME] [m/MACHINE_NAME] [s/SPECIAL_NOTES] &lt;p/PRIORITY&gt;</pre>
 </div>
 </div>
 <div class="literalblock">
@@ -351,8 +366,7 @@ Updating your own account&#8217;s password. Note that NEW_PW has to match some s
 Adds a new machine. All machine names must be unique. Status can only be either “ENABLED” or “DISABLED”.<br></p>
 <div class="literalblock">
 <div class="content">
-<pre>Format:
-addMachine n/MACHINE_NAME ms/STATUS</pre>
+<pre>Format: addMachine n/MACHINE_NAME ms/STATUS</pre>
 </div>
 </div>
 <div class="literalblock">
@@ -414,23 +428,58 @@ editMachine my_machine n/my_machine2 s/enabled</pre>
 <div class="sect1">
 <h2 id="command-summary"><a class="link" href="#command-summary">5. Command Summary</a></h2>
 <div class="sectionbody">
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p><strong>Normal Commands:</strong></p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
 <p>help</p>
 </li>
 <li>
-<p>addJob n/PRINT_NAME m/MACHINE_NAME d/PRINT_DURATION [s/SPECIAL_NOTES] &lt;p/PRIORITY&gt;</p>
+<p>findJob JOBNAME [JOBNAME]&#8230;&#8203;</p>
 </li>
 <li>
-<p><code>[WIP][DISABLED]</code> list [n/PRINT_NAME] [m/MACHINE_NAME] [s/SPECIAL_NOTES] [p/PRIORITY]</p>
+<p>manageJob JOBNAME start</p>
 </li>
 <li>
-<p><code>[WIP][DISABLED]</code> list_history [n/PRINT_NAME] [m/MACHINE_NAME] [s/SPECIAL_NOTES] [p/PRIORITY]</p>
+<p>manageJob JOBNAME cancel</p>
+</li>
+<li>
+<p>manageJob JOBNAME restart</p>
+</li>
+<li>
+<p>manageJob JOBNAME delete</p>
+</li>
+<li>
+<p>requestDeletion n/JOBNAME</p>
+</li>
+<li>
+<p>listJob [n/PRINT_NAME] [m/MACHINE_NAME] [s/SPECIAL_NOTES] [p/PRIORITY]</p>
+</li>
+<li>
+<p>list_history [n/PRINT_NAME] [m/MACHINE_NAME] [s/SPECIAL_NOTES] [p/PRIORITY]</p>
+</li>
+<li>
+<p>editJob INDEX [n/PRINT_NAME] [m/MACHINE_NAME] [s/SPECIAL_NOTES] &lt;p/PRIORITY&gt;</p>
+</li>
+<li>
+<p>listMachines</p>
+</li>
+<li>
+<p>findMachines [machine name] [machine name 2]</p>
 </li>
 <li>
 <p>exit</p>
 </li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Admin Commands:"</strong></p>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p>login ADMIN_ID PASSWORD</p>
 </li>
@@ -447,30 +496,18 @@ editMachine my_machine n/my_machine2 s/enabled</pre>
 <p>updatePassword USERNAME OLD_PW NEW_PW NEW_PW_VERIFY</p>
 </li>
 <li>
-<p>add_machine n/MACHINE_NAME s/STATUS</p>
+<p>addMachine n/MACHINE_NAME ms/STATUS</p>
 </li>
 <li>
-<p><code>[WIP][DISABLED]</code> remove_machine MACHINE_NAME</p>
+<p>removeMachine MACHINE_NAME</p>
 </li>
 <li>
-<p>edit_machine MACHINE_NAME [n/MACHINE_NAME] [s/STATUS]</p>
+<p>editMachine MACHINE_NAME [n/MACHINE_NAME] [s/STATUS]</p>
 </li>
-<li>
-<p>manageJob JOB_NAME start</p>
-</li>
-<li>
-<p>manageJob JOB_NAME cancel</p>
-</li>
-<li>
-<p>manageJob JOB_NAME restart</p>
-</li>
-<li>
-<p><code>[WIP][DISABLED]</code> manageJob JOB_NAME delete</p>
-</li>
-<li>
-<p>requestDeletion n/iDCP</p>
+</ol>
+</div>
 </li>
 </ol>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-03 03:55:37 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-04 17:01:56 UTC</div></div></div></body></html>
