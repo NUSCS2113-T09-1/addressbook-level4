@@ -7,10 +7,10 @@ import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.job.Job;
 import seedu.address.model.job.JobName;
 import seedu.address.model.job.JobNote;
+import seedu.address.model.job.JobOwner;
 import seedu.address.model.job.Priority;
 import seedu.address.model.machine.MachineName;
 import seedu.address.model.job.Name;
-import seedu.address.model.person.Person;
 
 
 /**
@@ -56,8 +56,7 @@ public class XmlAdaptedJobName {
         JobName name = new JobName(jobName);
         MachineName machine = new MachineName("JJ's printer");
         JobNote note = new JobNote("Empty note for now");
-        Person person = new Person(new Name("JunJie"), new Phone("81184502"), new Email("teojunjie@gmail.com"),
-            new Address("1 Rivervale Link #06-09"), new HashSet<>());
+        JobOwner person = new JobOwner(new Name("JunJie"));
 
         return new Job(name, machine, person, Priority.HIGH, 2, note, new HashSet<>());
     }

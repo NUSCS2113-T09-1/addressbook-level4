@@ -6,7 +6,6 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.admin.Admin;
 import seedu.address.model.machine.Machine;
-import seedu.address.model.person.Person;
 
 /**
  * API of the Logic component
