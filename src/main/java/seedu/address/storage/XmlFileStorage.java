@@ -20,16 +20,6 @@ public class XmlFileStorage {
 
     //==================================Save data==============================================//
 
-    /**
-     * Saves the given addressbook data to the specified file.
-     */
-    public static void saveDataToFile(Path file, XmlSerializableAddressBook addressBook) throws FileNotFoundException {
-        try {
-            XmlUtil.saveDataToFile(file, addressBook);
-        } catch (JAXBException e) {
-            throw new AssertionError("Unexpected exception " + e.getMessage(), e);
-        }
-    }
 
     /**
      * Saves the given admins data to the specified file.
@@ -57,17 +47,6 @@ public class XmlFileStorage {
 
     //==================================Load data================================================//
 
-    /**
-     * Returns address book in the file or an empty address book
-     */
-    public static XmlSerializableAddressBook loadDataFromSaveFile(Path file)
-        throws DataConversionException, FileNotFoundException {
-        try {
-            return XmlUtil.getDataFromFile(file, XmlSerializableAddressBook.class);
-        } catch (JAXBException e) {
-            throw new DataConversionException(e);
-        }
-    }
 
     /**
      * Returns makerManager admin_file in the file or an empty admin_file
