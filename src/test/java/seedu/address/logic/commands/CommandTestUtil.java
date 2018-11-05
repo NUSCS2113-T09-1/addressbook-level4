@@ -15,6 +15,7 @@ import static seedu.address.model.job.Status.ONGOING;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.CommandHistory;
@@ -22,6 +23,9 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.commands.machine.EditMachineCommand;
 import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
+import seedu.address.model.admin.Admin;
+import seedu.address.model.machine.Machine;
+import seedu.address.model.machine.MachineNameContainsKeywordsPredicate;
 
 /**
  * Contains helper methods for testing commands.
@@ -121,7 +125,7 @@ public class CommandTestUtil {
      * Executes the given {@code command}, confirms that <br>
      * - a {@code CommandException} is thrown <br>
      * - the CommandException message matches {@code expectedMessage} <br>
-     * - the address book and the filtered person list in the {@code actualModel} remain unchanged <br>
+     * - the address book and the filtered machine and admin list in the {@code actualModel} remain unchanged <br>
      * - {@code actualCommandHistory} remains unchanged.
      */
     public static void assertCommandFailure(Command command, Model actualModel, CommandHistory actualCommandHistory,
@@ -129,7 +133,8 @@ public class CommandTestUtil {
         // we are unable to defensively copy the model for comparison later, so we can
         // only do so by copying its components.
         AddressBook expectedAddressBook = new AddressBook(actualModel.getAddressBook());
-        List<Person> expectedFilteredList = new ArrayList<>(actualModel.getFilteredPersonList());
+        List<Machine> expectedFilteredMahcineList = new ArrayList<>(actualModel.getFilteredMachineList());
+        List<Admin> expectedFilteredAdminList = new ArrayList<>(actualModel.getFilteredAdminList());
 
         CommandHistory expectedCommandHistory = new CommandHistory(actualCommandHistory);
 
@@ -139,31 +144,47 @@ public class CommandTestUtil {
         } catch (CommandException e) {
             assertEquals(expectedMessage, e.getMessage());
             assertEquals(expectedAddressBook, actualModel.getAddressBook());
-            assertEquals(expectedFilteredList, actualModel.getFilteredPersonList());
+            assertEquals(expectedFilteredMahcineList, actualModel.getFilteredMachineList());
+            assertEquals(expectedFilteredAdminList, actualModel.getFilteredAdminList());
             assertEquals(expectedCommandHistory, actualCommandHistory);
         }
     }
 
     /**
-     * Updates {@code model}'s filtered list to show only the person at the given {@code targetIndex} in the
+     * Updates {@code model}'s filtered list to show only the machine and admin at the given {@code targetIndex} in the
      * {@code model}'s address book.
      */
-    public static void showPersonAtIndex(Model model, Index targetIndex) {
-        assertTrue(targetIndex.getZeroBased() < model.getFilteredPersonList().size());
+    public static void showMachineAtIndex(Model model, Index targetIndex) {
+        assertTrue(targetIndex.getZeroBased() < model.getFilteredMachineList().size());
+        assertTrue(targetIndex.getZeroBased() < model.getFilteredAdminList().size());
 
-        Person person = model.getFilteredPersonList().get(targetIndex.getZeroBased());
-        final String[] splitName = person.getName().fullName.split("\\s+");
-        model.updateFilteredPersonList(new NameContainsKeywordsPredicate(Arrays.asList(splitName[0])));
 
-        assertEquals(1, model.getFilteredPersonList().size());
+        Machine machine = model.getFilteredMachineList().get(targetIndex.getZeroBased());
+        Admin admin = model.getFilteredAdminList().get(targetIndex.getZeroBased());
+
+        final String[] splitMachineName = machine.getName().fullName.split("\\s+");
+        final String[] splitAdminName = admin.getUsername().toString().split("\\s+");
+
+        model.updateFilteredMachineList(new MachineNameContainsKeywordsPredicate(Arrays.asList(splitMachineName[0])));
+
+        assertEquals(1, model.getFilteredMachineList().size());
     }
 
     /**
-     * Deletes the first person in {@code model}'s filtered list from {@code model}'s address book.
+     * Deletes the first machine in {@code model}'s filtered list from {@code model}'s address book.
      */
-    public static void deleteFirstPerson(Model model) {
-        Person firstPerson = model.getFilteredPersonList().get(0);
-        model.deletePerson(firstPerson);
+    public static void deleteFirstMachine(Model model) {
+        Machine firstMachine = model.getFilteredMachineList().get(0);
+        model.removeMachine(firstMachine);
+        model.commitAddressBook();
+    }
+
+    /**
+     * Deletes the first admin {@code model}'s filtered list from {@code model}'s address book.
+     */
+    public static void deleteFirstAdmin(Model model) {
+        Admin firstAdmin = model.getFilteredAdminList().get(0);
+        model.removeAdmin(firstAdmin);
         model.commitAddressBook();
     }
 

@@ -33,14 +33,12 @@ public class XmlAddressBookStorage extends ComponentManager implements AddressBo
     private Path filePath;
     private UserPrefs userPrefs;
 
-    private String addressBookFilePath;
     private String makerManagerAdminsFilePath;
     private String makerManagerMachinesFilePath;
 
     public XmlAddressBookStorage(UserPrefs userPrefs) {
         this.userPrefs = userPrefs;
         this.filePath = userPrefs.getAddressBookFilePath();
-        this.addressBookFilePath = userPrefs.getAddressBookFilePath().getFileName().toString();
         this.makerManagerAdminsFilePath = userPrefs.getMakerManagerAdminsFilePath().getFileName().toString();
         this.makerManagerMachinesFilePath = userPrefs.getMakerManagerMachinesFilePath().getFileName().toString();
     }

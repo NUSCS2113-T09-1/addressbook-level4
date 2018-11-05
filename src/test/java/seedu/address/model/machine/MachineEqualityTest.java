@@ -6,7 +6,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import seedu.address.testutil.MachineBuilder;
+import seedu.address.testutil.builders.MachineBuilder;
 import seedu.address.testutil.testdata.ValidMachines;
 
 
@@ -21,8 +21,8 @@ public class MachineEqualityTest {
     @Test
     public void isSameNameMachine() {
         Machine toCheck = new MachineBuilder()
-            .withName("JJPrinter")
-            .withStatus(MachineStatus.ENABLED)
+            .withMachineName("JJPrinter")
+            .withMachineStatus(MachineStatus.ENABLED)
             .build();
 
         Machine testMachine = ValidMachines.JJPRINTER;
@@ -32,8 +32,8 @@ public class MachineEqualityTest {
     @Test
     public void isSameMachineParameters() {
         Machine toCheck = new MachineBuilder()
-            .withName("JJPrinter")
-            .withStatus(MachineStatus.ENABLED)
+            .withMachineName("JJPrinter")
+            .withMachineStatus(MachineStatus.ENABLED)
             .build();
         Machine testMachine = ValidMachines.JJPRINTER;
         assertTrue(testMachine.hasSameMachineParameters(toCheck));
@@ -42,8 +42,8 @@ public class MachineEqualityTest {
     @Test
     public void notEquals() {
         Machine toCheck = new MachineBuilder()
-            .withName("Printer")
-            .withStatus(MachineStatus.ENABLED)
+            .withMachineName("Printer")
+            .withMachineStatus(MachineStatus.ENABLED)
             .build();
         Machine testMachine = ValidMachines.JJPRINTER;
         assertTrue(!toCheck.equals(testMachine));

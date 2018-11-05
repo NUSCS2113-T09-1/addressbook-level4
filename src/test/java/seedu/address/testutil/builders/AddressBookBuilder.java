@@ -1,7 +1,6 @@
 package seedu.address.testutil.builders;
 
 import seedu.address.model.AddressBook;
-import seedu.address.model.person.Person;
 
 /**
  * A utility class to help with building Addressbook objects.
@@ -20,13 +19,17 @@ public class AddressBookBuilder {
         this.addressBook = addressBook;
     }
 
+    //TODO: add more testing codes with the template for persons
+
     /**
      * Adds a new {@code Person} to the {@code AddressBook} that we are building.
      */
+    /*
     public AddressBookBuilder withPerson(Person person) {
         addressBook.addPerson(person);
         return this;
     }
+    */
 
     public AddressBook build() {
         return addressBook;

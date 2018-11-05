@@ -12,6 +12,7 @@ import seedu.address.testutil.testdata.ValidJobs;
 import seedu.address.testutil.testdata.ValidMachines;
 
 public class MachineTest {
+    /*
     @Rule
     public ExpectedException thrown = ExpectedException.none();
 
@@ -47,5 +48,6 @@ public class MachineTest {
         Machine testMachine = ValidMachines.JJPRINTER;
         assertNotNull(testMachine.getFilteredJobListPredicate());
     }
+    */
 
 }

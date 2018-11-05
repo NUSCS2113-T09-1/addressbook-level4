@@ -39,7 +39,7 @@ public class MachineBuilder {
     public MachineBuilder(Machine machineToCopy) {
         name = machineToCopy.getName();
         status = machineToCopy.getStatus();
-        jobs = new ArrayList<>(machineToCopy.getJobs());
+
         tags = new HashSet<>(machineToCopy.getTags());
     }
 

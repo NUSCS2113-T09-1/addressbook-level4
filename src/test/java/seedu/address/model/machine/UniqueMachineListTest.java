@@ -12,7 +12,7 @@ import org.junit.rules.ExpectedException;
 import seedu.address.model.job.Job;
 import seedu.address.model.machine.exceptions.DuplicateMachineException;
 import seedu.address.model.machine.exceptions.MachineNotFoundException;
-import seedu.address.testutil.MachineBuilder;
+import seedu.address.testutil.builders.MachineBuilder;
 import seedu.address.testutil.testdata.ValidJobs;
 import seedu.address.testutil.testdata.ValidMachines;
 
@@ -139,5 +139,8 @@ public class UniqueMachineListTest {
         myList.add(ValidMachines.TYPRINTER);
         myList.addJobToMachineList(ValidJobs.job1());
     }
+
+
+    */
 
 }

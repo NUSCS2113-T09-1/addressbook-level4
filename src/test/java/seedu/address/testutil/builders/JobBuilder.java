@@ -6,11 +6,11 @@ import java.util.Set;
 import seedu.address.model.job.Job;
 import seedu.address.model.job.JobName;
 import seedu.address.model.job.JobNote;
+import seedu.address.model.job.JobOwner;
 import seedu.address.model.job.Priority;
 import seedu.address.model.job.Status;
 import seedu.address.model.job.TimeStamp;
 import seedu.address.model.machine.MachineName;
-import seedu.address.model.person.Person;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.util.SampleDataUtil;
 
@@ -31,8 +31,8 @@ public class JobBuilder {
     private JobName name;
     private MachineName machine;
     private TimeStamp startTime;
-    private Person owner;
-    private final TimeStamp addedTime;
+    private JobOwner owner;
+    private final String addedTime;
 
     //Data field
     private Set<Tag> tags;
@@ -42,10 +42,12 @@ public class JobBuilder {
     private long duration;
 
 
+    //TODO: solving bug
+
     public JobBuilder() {
         name = new JobName(DEFAULT_JOBNAME);
         machine = new MachineBuilder().build().getName();
-        owner = new PersonBuilder().build();
+        owner = new JobOwnerBuilder().build();
         priority = DEFAULT_PRIORITY;
         status = DEFAULT_STATUS;
         jobNote = new JobNote(DEFAULT_JOBNOTE);
@@ -88,7 +90,7 @@ public class JobBuilder {
     /**
      * Sets the job owner to be the input person parameter
      */
-    public JobBuilder withOwner(Person owner) {
+    public JobBuilder withOwner(JobOwner owner) {
         this.owner = owner;
         return this;
     }

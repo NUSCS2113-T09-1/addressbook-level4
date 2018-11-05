@@ -25,7 +25,8 @@ import systemtests.ModelHelper;
  * testing
  */
 public class TestApp extends MainApp {
-
+    /*
+    //TODO: reimplement
     public static final Path SAVE_LOCATION_FOR_TESTING = TestUtil.getFilePathInSandboxFolder("sampleData.xml");
     public static final String APP_TITLE = "Test App";
 
@@ -70,6 +71,7 @@ public class TestApp extends MainApp {
     /**
      * Returns a defensive copy of the address book data stored inside the storage file.
      */
+    /*
     public AddressBook readStorageAddressBook() {
         try {
             return new AddressBook(storage.readAddressBook().get());
@@ -83,6 +85,7 @@ public class TestApp extends MainApp {
     /**
      * Returns the file path of the storage file.
      */
+    /*
     public Path getStorageSaveLocation() {
         return storage.getAddressBookFilePath();
     }
@@ -90,6 +93,7 @@ public class TestApp extends MainApp {
     /**
      * Returns a defensive copy of the model.
      */
+    /*
     public Model getModel() {
         Model copy = new ModelManager((model.getAddressBook()), new UserPrefs());
         ModelHelper.setFilteredList(copy, model.getFilteredPersonList());
@@ -108,6 +112,7 @@ public class TestApp extends MainApp {
     /**
      * Creates an XML file at the {@code filePath} with the {@code data}.
      */
+    /*
     private <T> void createDataFileWithData(T data, Path filePath) {
         try {
             FileUtil.createIfMissing(filePath);
@@ -116,4 +121,5 @@ public class TestApp extends MainApp {
             throw new RuntimeException(e);
         }
     }
+    */
 }
