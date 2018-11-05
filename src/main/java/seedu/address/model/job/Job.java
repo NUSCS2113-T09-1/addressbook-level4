@@ -13,12 +13,11 @@ import java.util.logging.Logger;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.job.exceptions.JobNotStartedException;
 import seedu.address.model.machine.MachineName;
-import seedu.address.model.person.Person;
 import seedu.address.model.tag.Tag;
 
 /**
  * Represents a Printing job in MakerManager.
- * Morphed from the Person class in original Addressbook
+ * Morphed from the JobOwner class in original Addressbook
  * Guarantees: details are present and not null, field values are validated, immutable.
  */
 public class Job {
@@ -36,7 +35,7 @@ public class Job {
     private JobName name;
     private MachineName machineName;
     private TimeStamp startTime;
-    private Person owner;
+    private JobOwner owner;
     private final TimeStamp addedTime;
 
     //Data field
@@ -50,7 +49,7 @@ public class Job {
      * Every field must be present and not null.
      * TODO: Need to validate all these somewhere
      */
-    public Job(JobName name, MachineName machine, Person owner, Priority priority, long duration, JobNote jobNote,
+    public Job(JobName name, MachineName machine, JobOwner owner, Priority priority, long duration, JobNote jobNote,
                Set<Tag> tags) {
         requireAllNonNull(name, machine, owner, tags);
         this.name = name;
@@ -70,7 +69,7 @@ public class Job {
     /**
      * Recovers a job object from the storage file
      */
-    public Job(JobName name, MachineName machine, Person owner, TimeStamp addedTime, TimeStamp startTime,
+    public Job(JobName name, MachineName machine, JobOwner owner, TimeStamp addedTime, TimeStamp startTime,
                Priority priority, Status status, long duration, JobNote jobNote, Set<Tag> tags) {
         requireAllNonNull(name, machine, owner, tags);
         this.name = name;
@@ -203,7 +202,7 @@ public class Job {
         return startTime;
     }
 
-    public Person getOwner() {
+    public JobOwner getOwner() {
         return owner;
     }
 
@@ -228,7 +227,7 @@ public class Job {
         machineName = newMachine;
     }
 
-    public void setOwner(Person newOwner) {
+    public void setOwner(JobOwner newOwner) {
         owner = newOwner;
     }
 
@@ -246,30 +245,6 @@ public class Job {
         return otherJob != null && otherJob.getJobName().equals(getJobName()) && (otherJob.getMachineName()
             .equals(getMachineName()) || otherJob.getAddedTime().equals(getAddedTime()) || otherJob.getOwner()
             .equals(getOwner()));
-    }
-
-    /**
-     * Returns true if a job has been completed
-     */
-
-    public boolean isCompleted() {
-        return status.equals(Status.FINISHED);
-    }
-
-    /**
-     * Returns true if a job is requested to be deleted
-     */
-
-    public boolean isDeleting() {
-        return status.equals(Status.DELETING);
-    }
-
-    /**
-     * Returns true if a job is cancelled
-     */
-
-    public boolean isCancelled() {
-        return status.equals(Status.CANCELLED);
     }
 
     /**

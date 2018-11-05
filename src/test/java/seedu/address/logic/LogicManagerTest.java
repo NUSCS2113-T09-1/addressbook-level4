@@ -40,13 +40,6 @@ public class LogicManagerTest {
     }
 
     @Test
-    public void execute_validCommand_success() {
-        String listMachinesCommand = ListMachinesCommand.COMMAND_WORD;
-        assertCommandSuccess(listMachinesCommand, ListMachinesCommand.MESSAGE_SUCCESS, model);
-        assertHistoryCorrect(listMachinesCommand);
-    }
-
-    @Test
     public void getFilteredPersonList_modifyList_throwsUnsupportedOperationException() {
         thrown.expect(UnsupportedOperationException.class);
         logic.getFilteredPersonList().remove(0);

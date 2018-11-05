@@ -30,7 +30,6 @@ import seedu.address.model.machine.UniqueMachineList;
 import seedu.address.model.machine.exceptions.MachineDisabledException;
 import seedu.address.model.machine.exceptions.MachineNotFoundException;
 import seedu.address.model.person.Person;
-import seedu.address.model.person.UniquePersonList;
 
 
 /**

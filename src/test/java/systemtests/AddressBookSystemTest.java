@@ -34,10 +34,6 @@ import seedu.address.MainApp;
 import seedu.address.TestApp;
 import seedu.address.commons.core.EventsCenter;
 import seedu.address.commons.core.index.Index;
-import seedu.address.logic.commands.ClearCommand;
-import seedu.address.logic.commands.FindCommand;
-import seedu.address.logic.commands.ListCommand;
-import seedu.address.logic.commands.SelectCommand;
 import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
 import seedu.address.testutil.testdata.TypicalPersons;
@@ -141,34 +137,48 @@ public abstract class AddressBookSystemTest {
     /**
      * Displays all persons in the address book.
      */
+    //TODO
+    /*
     protected void showAllPersons() {
         executeCommand(ListCommand.COMMAND_WORD);
         assertEquals(getModel().getAddressBook().getPersonList().size(), getModel().getFilteredPersonList().size());
     }
+    */
 
     /**
      * Displays all persons with any parts of their names matching {@code keyword} (case-insensitive).
      */
+    //TODO
+    /*
     protected void showPersonsWithName(String keyword) {
         executeCommand(FindCommand.COMMAND_WORD + " " + keyword);
         assertTrue(getModel().getFilteredPersonList().size() < getModel().getAddressBook().getPersonList().size());
     }
+    */
 
     /**
      * Selects the person at {@code index} of the displayed list.
      */
+    //TODO
+    /*
     protected void selectPerson(Index index) {
         executeCommand(SelectCommand.COMMAND_WORD + " " + index.getOneBased());
         assertEquals(index.getZeroBased(), getPersonListPanel().getSelectedCardIndex());
     }
+    */
+
+
 
     /**
      * Deletes all persons in the address book.
      */
+    //TODO: remove all person testing after all testing cases were added
+    /*
     protected void deleteAllPersons() {
         executeCommand(ClearCommand.COMMAND_WORD);
         assertEquals(0, getModel().getAddressBook().getPersonList().size());
     }
+    */
 
     /**
      * Asserts that the {@code CommandBox} displays {@code expectedCommandInput}, the {@code ResultDisplay} displays
