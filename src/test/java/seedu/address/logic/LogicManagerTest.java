@@ -32,17 +32,23 @@ public class LogicManagerTest {
         assertHistoryCorrect(invalidCommand);
     }
 
+//    @Test
+//    public void execute_commandExecutionError_throwsCommandException() {
+//        String deleteCommand = "delete 9";
+//        assertCommandException(deleteCommand, MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+//        assertHistoryCorrect(deleteCommand);
+//    }
+
     @Test
-    public void execute_commandExecutionError_throwsCommandException() {
-        String logoutCommand = "logout";
-        assertCommandException(logoutCommand, MESSAGE_NO_CURRENT_SESSION);
-        assertHistoryCorrect(logoutCommand);
+    public void getFilteredMachineList_modifyList_throwsUnsupportedOperationException() {
+        thrown.expect(UnsupportedOperationException.class);
+        logic.getFilteredMachineList().remove(0);
     }
 
     @Test
-    public void getFilteredPersonList_modifyList_throwsUnsupportedOperationException() {
+    public void getFilteredAdminList_modifyList_throwsUnsupportedOperationException() {
         thrown.expect(UnsupportedOperationException.class);
-        logic.getFilteredPersonList().remove(0);
+        logic.getFilteredAdminList().remove(0);
     }
 
     /**

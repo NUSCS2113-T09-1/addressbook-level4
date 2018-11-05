@@ -1,7 +1,6 @@
 package seedu.address.logic.commands;
 
 //import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
-import static seedu.address.testutil.testdata.TypicalPersons.getTypicalAddressBook;
 
 import org.junit.Test;
 
@@ -12,6 +11,8 @@ import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
 
 public class ClearCommandTest {
+
+    /*
 
     private CommandHistory commandHistory = new CommandHistory();
 
@@ -34,5 +35,6 @@ public class ClearCommandTest {
 
         //assertCommandSuccess(new ClearCommand(), model, commandHistory, ClearCommand.MESSAGE_SUCCESS, expectedModel);
     }
+    */
 
 }

@@ -20,7 +20,6 @@ import seedu.address.model.job.Job;
 import seedu.address.model.job.JobName;
 import seedu.address.model.machine.Machine;
 import seedu.address.model.machine.MachineName;
-import seedu.address.model.person.Person;
 
 public class LoginCommandTest {
 
@@ -71,32 +70,12 @@ public class LoginCommandTest {
         private Admin firstAdmin = new Admin(new Username("firstAdmin"), new Password("rightPW"));
 
         @Override
-        public void addPerson(Person person) {
-            throw new AssertionError("This method should not be called.");
-        }
-
-        @Override
         public void resetData(ReadOnlyAddressBook newData) {
             throw new AssertionError("This method should not be called.");
         }
 
         @Override
         public ReadOnlyAddressBook getAddressBook() {
-            throw new AssertionError("This method should not be called.");
-        }
-
-        @Override
-        public boolean hasPerson(Person person) {
-            throw new AssertionError("This method should not be called.");
-        }
-
-        @Override
-        public void deletePerson(Person target) {
-            throw new AssertionError("This method should not be called.");
-        }
-
-        @Override
-        public void updatePerson(Person target, Person editedPerson) {
             throw new AssertionError("This method should not be called.");
         }
 
@@ -248,15 +227,6 @@ public class LoginCommandTest {
             return 0;
         }
 
-        @Override
-        public ObservableList<Person> getFilteredPersonList() {
-            throw new AssertionError("This method should not be called.");
-        }
-
-        @Override
-        public void updateFilteredPersonList(Predicate<Person> predicate) {
-            throw new AssertionError("This method should not be called.");
-        }
 
         @Override
         public ObservableList<Admin> getFilteredAdminList() {

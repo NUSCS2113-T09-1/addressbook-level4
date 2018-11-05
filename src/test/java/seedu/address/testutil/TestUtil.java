@@ -7,7 +7,8 @@ import java.nio.file.Paths;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.model.Model;
-import seedu.address.model.person.Person;
+import seedu.address.model.admin.Admin;
+import seedu.address.model.machine.Machine;
 
 /**
  * A utility class for test cases.
@@ -33,23 +34,45 @@ public class TestUtil {
     }
 
     /**
-     * Returns the middle index of the person in the {@code model}'s person list.
+     * Returns the middle index of the machine in the {@code model}'s person list.
      */
-    public static Index getMidIndex(Model model) {
-        return Index.fromOneBased(model.getFilteredPersonList().size() / 2);
+    public static Index getMidMachineIndex(Model model) {
+        return Index.fromOneBased(model.getFilteredMachineList().size() / 2);
     }
 
     /**
-     * Returns the last index of the person in the {@code model}'s person list.
+     * Returns the middle index of the admin in the {@code model}'s person list.
      */
-    public static Index getLastIndex(Model model) {
-        return Index.fromOneBased(model.getFilteredPersonList().size());
+    public static Index getMidAdminIndex(Model model) {
+        return Index.fromOneBased(model.getFilteredAdminList().size() / 2);
     }
 
     /**
-     * Returns the person in the {@code model}'s person list at {@code index}.
+     * Returns the last index of the machine in the {@code model}'s person list.
      */
-    public static Person getPerson(Model model, Index index) {
-        return model.getFilteredPersonList().get(index.getZeroBased());
+    public static Index getLastMachineIndex(Model model) {
+        return Index.fromOneBased(model.getFilteredMachineList().size());
     }
+
+    /**
+     * Returns the last index of the admin in the {@code model}'s person list.
+     */
+    public static Index getLastAdminIndex(Model model) {
+        return Index.fromOneBased(model.getFilteredAdminList().size());
+    }
+
+    /**
+     * Returns the machine in the {@code model}'s person list at {@code index}.
+     */
+    public static Machine getMachine(Model model, Index index) {
+        return model.getFilteredMachineList().get(index.getZeroBased());
+    }
+
+    /**
+     * Returns the machine in the {@code model}'s person list at {@code index}.
+     */
+    public static Admin getAdmin(Model model, Index index) {
+        return model.getFilteredAdminList().get(index.getZeroBased());
+    }
+
 }
