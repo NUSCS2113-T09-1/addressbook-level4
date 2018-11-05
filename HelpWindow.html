@@ -116,7 +116,7 @@ Give the user guidance as to what (s)he can do with makerManager<br></p>
 </li>
 <li>
 <p><strong>Adding a print Job:</strong>
-Adds a print job to the machine&#8217;s queue.<br>
+Adds a print job to the machine&#8217;s queue. Specifying AUTO as MACHINE_NAME will let the software optimize which queue to add the print to.<br>
 Available priorities: URGENT, HIGH, NORMAL.</p>
 <div class="literalblock">
 <div class="content">
@@ -176,7 +176,7 @@ manageJob myPrint restart</pre>
 </div>
 </li>
 <li>
-<p><strong><code>[WIP][DISABLED]</code> Deleting a Print:</strong>
+<p><strong>Deleting a Print:</strong>
 deletes an existing print in the queue.<br></p>
 <div class="literalblock">
 <div class="content">
@@ -304,10 +304,16 @@ The following commands will only work in admin mode. Admin accounts currently no
 <ol class="lowerroman" type="i">
 <li>
 <p><strong>Login:</strong>
-Enables admin mode.<br></p>
+Enables admin mode. Note that a default account is created when no other admins exist. Username and Password of default are both 'admin'<br></p>
 <div class="literalblock">
 <div class="content">
 <pre>Format: login ADMIN_ID PASSWORD</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Examples:
+login admin admin</pre>
 </div>
 </div>
 </li>
@@ -533,6 +539,9 @@ editMachine my_machine n/my_machine2 ms/ENABLED</pre>
 <p>manageJob JOB_NAME restart</p>
 </li>
 <li>
+<p>manageJob JOB_NAME delete</p>
+</li>
+<li>
 <p><code>[WIP][DISABLED]</code> manageJob JOB_NAME delete</p>
 </li>
 <li>
@@ -541,4 +550,4 @@ editMachine my_machine n/my_machine2 ms/ENABLED</pre>
 </ol>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-05 02:07:31 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-05 03:36:21 UTC</div></div></div></body></html>
