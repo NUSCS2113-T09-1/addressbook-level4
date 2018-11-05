@@ -56,7 +56,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p><strong><code>listMachine</code></strong> : lists all machines</p>
+<p><strong><code>listMachines</code></strong> : lists all machines</p>
 </li>
 <li>
 <p><strong><code>addJob</code></strong><code>n/iDCP m/TYPrinter on/TIAN YUAN pr/HIGH d/1.5 jn/This is for the iDCP project t/iDCP</code> : adds a Job named <code>iDCP</code> to the MakerManager.</p>
@@ -348,8 +348,32 @@ Updating your own account&#8217;s password. Note that NEW_PW has to match some s
 </div>
 </li>
 <li>
-<p><strong>Add Machine:</strong>
-Adds a new machine. All machine names must be unique. Status can only be either “ENABLED” or “DISABLED”.<br></p>
+<p><strong>Add Machine:</strong> Adds a new machine.</p>
+<div class="olist upperalpha">
+<ol class="upperalpha" type="A">
+<li>
+<p>All machine names must be unique.</p>
+<div class="olist upperroman">
+<ol class="upperroman" type="I">
+<li>
+<p>Names should only contain alphanumeric characters and spaces,
+and it should not be blank.</p>
+</li>
+<li>
+<p>Reserved names are : [ AUTO ]</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Status can only be</p>
+<div class="olist upperroman">
+<ol class="upperroman" type="I">
+<li>
+<p>“ENABLED”</p>
+</li>
+<li>
+<p>“DISABLED”</p>
 <div class="literalblock">
 <div class="content">
 <pre>Format:
@@ -359,8 +383,14 @@ addMachine n/MACHINE_NAME ms/STATUS</pre>
 <div class="literalblock">
 <div class="content">
 <pre>Example:
-addMachine n/my_machine ms/ENABLED</pre>
+addMachine n/myMachine ms/ENABLED</pre>
 </div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
 </div>
 </li>
 <li>
@@ -379,18 +409,52 @@ removeMachine my_machine</pre>
 </div>
 </li>
 <li>
-<p><strong>Change Device Status:</strong>
-Edits an existing machine. All machine names must be unique. Status can only be either “ENABLED” or “DISABLED”. At least one optional argument must be present.<br></p>
+<p><strong>Edit Machine</strong> :
+Edits an existing machine.</p>
+<div class="olist upperalpha">
+<ol class="upperalpha" type="A">
+<li>
+<p>All machine names must be unique.</p>
+<div class="olist upperroman">
+<ol class="upperroman" type="I">
+<li>
+<p>Names should only contain alphanumeric characters and spaces,
+and it should not be blank.</p>
+</li>
+<li>
+<p>Reserved names are : [ AUTO ]</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Status can only be</p>
+<div class="olist upperroman">
+<ol class="upperroman" type="I">
+<li>
+<p>“ENABLED”</p>
+</li>
+<li>
+<p>“DISABLED”</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>At least one optional argument must be present.<br></p>
 <div class="literalblock">
 <div class="content">
-<pre>Format: editMachine MACHINE_NAME [n/MACHINE_NAME] [s/STATUS]</pre>
+<pre>Format: editMachine MACHINE_NAME [n/MACHINE_NAME] [ms/STATUS]</pre>
 </div>
 </div>
 <div class="literalblock">
 <div class="content">
 <pre>Example:
-editMachine my_machine n/my_machine2 s/enabled</pre>
+editMachine my_machine n/my_machine2 ms/ENABLED</pre>
 </div>
+</div>
+</li>
+</ol>
 </div>
 </li>
 </ol>
@@ -448,13 +512,16 @@ editMachine my_machine n/my_machine2 s/enabled</pre>
 <p>updatePassword USERNAME OLD_PW NEW_PW NEW_PW_VERIFY</p>
 </li>
 <li>
-<p>add_machine n/MACHINE_NAME s/STATUS</p>
+<p>add_machine n/MACHINE_NAME ms/STATUS</p>
 </li>
 <li>
-<p><code>[WIP][DISABLED]</code> remove_machine MACHINE_NAME</p>
+<p><code>[WIP][DISABLED]</code> removeMachine n/MACHINE_NAME</p>
 </li>
 <li>
-<p>edit_machine MACHINE_NAME [n/MACHINE_NAME] [s/STATUS]</p>
+<p>edit_machine MACHINE_NAME [n/MACHINE_NAME] [ms/STATUS]</p>
+</li>
+<li>
+<p>listMachines</p>
 </li>
 <li>
 <p>manageJob JOB_NAME start</p>
@@ -474,4 +541,4 @@ editMachine my_machine n/my_machine2 s/enabled</pre>
 </ol>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-04 17:32:22 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-05 02:07:31 UTC</div></div></div></body></html>
