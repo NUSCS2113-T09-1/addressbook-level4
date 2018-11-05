@@ -248,6 +248,30 @@ public class Job {
     }
 
     /**
+     * Returns true if a job has been completed
+     */
+
+    public boolean isCompleted() {
+        return status.equals(Status.FINISHED);
+    }
+
+    /**
+     * Returns true if a job is requested to be deleted
+     */
+
+    public boolean isDeleting() {
+        return status.equals(Status.DELETING);
+    }
+
+    /**
+     * Returns true if a job is cancelled
+     */
+
+    public boolean isCancelled() {
+        return status.equals(Status.CANCELLED);
+    }
+
+    /**
      * Compares priority between two jobs
      */
 

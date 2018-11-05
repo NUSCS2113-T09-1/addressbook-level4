@@ -40,7 +40,6 @@ public class AddressBook implements ReadOnlyAddressBook {
 
     private static final Logger logger = LogsCenter.getLogger(AddressBook.class);
 
-    private final UniquePersonList persons;
     private final UniqueAdminList admins;
     private final UniqueMachineList machines;
     private final AdminSession adminSession;
@@ -56,7 +55,6 @@ public class AddressBook implements ReadOnlyAddressBook {
      */
 
     {
-        persons = new UniquePersonList();
         admins = new UniqueAdminList();
         machines = new UniqueMachineList();
         adminSession = new AdminSession();
@@ -77,13 +75,6 @@ public class AddressBook implements ReadOnlyAddressBook {
 
     //============================= list overwrite operations ==============================//
 
-    /**
-     * Replaces the contents of the person list with {@code persons}.
-     * {@code persons} must not contain duplicate persons.
-     */
-    public void setPersons(List<Person> persons) {
-        this.persons.setPersons(persons);
-    }
 
     /**
      * Replaces the contents of the machine list with {@code machines}.
@@ -116,49 +107,11 @@ public class AddressBook implements ReadOnlyAddressBook {
     public void resetData(ReadOnlyAddressBook newData) {
         requireNonNull(newData);
 
-        setPersons(newData.getPersonList());
         setMachines(newData.getMachineList());
         setAdmins(newData.getAdminList());
         setAdminsSession(newData.getAdminSession());
     }
 
-    //======================== person methods ================================//
-
-    /**
-     * Returns true if a person with the same identity as {@code person} exists in the address book.
-     */
-    public boolean hasPerson(Person person) {
-        requireNonNull(person);
-        return persons.contains(person);
-    }
-
-    /**
-     * Adds a person to the address book.
-     * The person must not already exist in the address book.
-     */
-    public void addPerson(Person p) {
-        persons.add(p);
-    }
-
-    /**
-     * Replaces the given person {@code target} in the list with {@code editedPerson}.
-     * {@code target} must exist in the address book.
-     * The person identity of {@code editedPerson} must not be the same as another existing
-     * person in the address book.
-     */
-    public void updatePerson(Person target, Person editedPerson) {
-        requireNonNull(editedPerson);
-
-        persons.setPerson(target, editedPerson);
-    }
-
-    /**
-     * Removes {@code key} from this {@code AddressBook}.
-     * {@code key} must exist in the address book.
-     */
-    public void removePerson(Person key) {
-        persons.remove(key);
-    }
 
     //======================== admin methods ================================//
 
@@ -529,10 +482,6 @@ public class AddressBook implements ReadOnlyAddressBook {
     }
 
     //======================== get lists methods ===========================//
-    @Override
-    public ObservableList<Person> getPersonList() {
-        return persons.asUnmodifiableObservableList();
-    }
 
     @Override
     public ObservableList<Admin> getAdminList() {
@@ -554,20 +503,22 @@ public class AddressBook implements ReadOnlyAddressBook {
     public boolean equals(Object other) {
         return other == this // short circuit if same object
             || (other instanceof AddressBook // instanceof handles nulls
-            && persons.equals(((AddressBook) other).persons));
+            && machines.equals(((AddressBook) other).machines)
+            && admins.equals(((AddressBook) other).admins));
         //TODO: refine later
     }
 
     @Override
     public int hashCode() {
         //TODO: Refine later
-        return persons.hashCode();
+        return admins.hashCode() + machines.hashCode();
     }
 
     //======================== util methods ================================//
     @Override
     public String toString() {
-        return persons.asUnmodifiableObservableList().size() + " persons";
+        return machines.asUnmodifiableObservableList().size() + " machines"
+            + admins.asUnmodifiableObservableList().size() + "admins";
         // TODO: refine later
     }
 
