@@ -14,14 +14,13 @@ import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.job.Job;
 import seedu.address.model.job.JobName;
 import seedu.address.model.job.JobNote;
+import seedu.address.model.job.JobOwner;
 import seedu.address.model.job.Priority;
 import seedu.address.model.job.Status;
 import seedu.address.model.job.TimeStamp;
 import seedu.address.model.machine.Machine;
 import seedu.address.model.machine.MachineName;
-import seedu.address.model.person.Person;
 import seedu.address.model.tag.Tag;
-import seedu.address.storage.XmlAdaptedPerson;
 import seedu.address.storage.XmlAdaptedTag;
 
 /**
@@ -38,7 +37,7 @@ public class XmlAdaptedJob {
     @XmlElement(required = true)
     private String machine;
     @XmlElement(required = true)
-    private XmlAdaptedPerson owner;
+    private XmlAdaptedJobOwner owner;
     @XmlElement(required = true)
     private XmlAdaptedTimeStamp addedTime;
     @XmlElement
@@ -66,7 +65,7 @@ public class XmlAdaptedJob {
     /**
      * Constructs an {@code XmlAdaptedJob} with the given job details.
      */
-    public XmlAdaptedJob(String name, String machine, XmlAdaptedPerson owner, XmlAdaptedTimeStamp addedTime,
+    public XmlAdaptedJob(String name, String machine, XmlAdaptedJobOwner owner, XmlAdaptedTimeStamp addedTime,
                          XmlAdaptedTimeStamp startTime, Priority priority, Long duration,
                          Status status, List<XmlAdaptedTag> tagged, String note) {
         this.name = name;
@@ -91,7 +90,7 @@ public class XmlAdaptedJob {
     public XmlAdaptedJob(Job source) {
         name = source.getJobName().fullName;
         machine = source.getMachineName().toString();
-        owner = new XmlAdaptedPerson(source.getOwner());
+        owner = new XmlAdaptedJobOwner(source.getOwner());
         addedTime = new XmlAdaptedTimeStamp(source.getAddedTime());
         startTime = new XmlAdaptedTimeStamp(source.getStartTime());
         priority = source.getPriority();
@@ -125,10 +124,10 @@ public class XmlAdaptedJob {
         MachineName modelJobMachine = new MachineName(machine);
 
         if (owner == null) {
-            throw new NullPointerException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Person.class.getSimpleName()));
+            throw new NullPointerException(String.format(MISSING_FIELD_MESSAGE_FORMAT, JobOwner.class.getSimpleName()));
         }
 
-        Person modelJobOwner = owner.toModelType();
+        JobOwner modelJobOwner = owner.toModelType();
         TimeStamp modelAddedTime = addedTime.toModelType();
 
         if (priority == null) {
