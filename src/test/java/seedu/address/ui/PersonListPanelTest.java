@@ -14,8 +14,6 @@ import java.nio.file.Paths;
 
 import org.junit.Test;
 
-import guitests.guihandles.PersonCardHandle;
-import guitests.guihandles.PersonListPanelHandle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import seedu.address.commons.events.ui.JumpToListRequestEvent;

@@ -71,10 +71,7 @@ public class XmlAddressBookStorage extends ComponentManager implements AddressBo
 
         try {
             //Use filePath.getFileName() so that i can do testing with test makerManager files
-            if (filePath.getFileName().toString().equals(addressBookFilePath)) {
-                XmlSerializableAddressBook xmlAddressBook = XmlFileStorage.loadDataFromSaveFile(filePath);
-                return Optional.of(xmlAddressBook.toModelType());
-            } else if (filePath.getFileName().toString().equals(makerManagerMachinesFilePath)) {
+            if (filePath.getFileName().toString().equals(makerManagerMachinesFilePath)) {
                 XmlSerializableMakerManagerMachines xmlMakerManagerMachines =
                         XmlFileStorage.loadMakerManagerMachineDataFromSaveFile(filePath);
                 return Optional.of(xmlMakerManagerMachines.toModelType());
@@ -175,9 +172,7 @@ public class XmlAddressBookStorage extends ComponentManager implements AddressBo
         requireNonNull(filePath);
 
         FileUtil.createIfMissing(filePath);
-        if (filePath.getFileName().toString().equals(addressBookFilePath)) {
-            XmlFileStorage.saveDataToFile(filePath, new XmlSerializableAddressBook(addressBook));
-        } else if (filePath.getFileName().toString().equals(makerManagerMachinesFilePath)) {
+        if (filePath.getFileName().toString().equals(makerManagerMachinesFilePath)) {
             XmlFileStorage.saveDataToFile(filePath, new XmlSerializableMakerManagerMachines(addressBook));
         } else if (filePath.getFileName().toString().equals(makerManagerAdminsFilePath)) {
             XmlFileStorage.saveDataToFile(filePath, new XmlSerializableMakerManagerAdmins(addressBook));
@@ -210,7 +205,6 @@ public class XmlAddressBookStorage extends ComponentManager implements AddressBo
          * for each xml document is different since we saving to different files
          * and not just one file
          */
-        XmlFileStorage.saveDataToFile(mainAddressBookFile, new XmlSerializableAddressBook(addressBook));
         XmlFileStorage.saveDataToFile(makerManagerMachinesFile, new XmlSerializableMakerManagerMachines(addressBook));
         XmlFileStorage.saveDataToFile(makerManagerAdminsFile, new XmlSerializableMakerManagerAdmins(addressBook));
     }
