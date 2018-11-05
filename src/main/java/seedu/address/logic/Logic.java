@@ -21,8 +21,6 @@ public interface Logic {
      */
     CommandResult execute(String commandText) throws CommandException, ParseException;
 
-    /** Returns an unmodifiable view of the filtered list of persons */
-    ObservableList<Person> getFilteredPersonList();
 
     /** Returns an unmodifiable view of the filtered list of machines */
     ObservableList<Machine> getFilteredMachineList();

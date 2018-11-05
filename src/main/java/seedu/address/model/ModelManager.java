@@ -32,8 +32,6 @@ import seedu.address.model.job.exceptions.JobNotStartedException;
 import seedu.address.model.job.exceptions.JobOngoingException;
 import seedu.address.model.machine.Machine;
 import seedu.address.model.machine.MachineName;
-import seedu.address.model.machine.exceptions.MachineNotFoundException;
-import seedu.address.model.person.Person;
 
 
 /**
@@ -43,7 +41,6 @@ public class ModelManager extends ComponentManager implements Model {
     private static final Logger logger = LogsCenter.getLogger(ModelManager.class);
 
     private final VersionedAddressBook versionedAddressBook;
-    private final FilteredList<Person> filteredPersons;
     private final FilteredList<Admin> filteredAdmins;
     private final FilteredList<Machine> filteredMachines;
 
@@ -59,7 +56,6 @@ public class ModelManager extends ComponentManager implements Model {
             "Initializing with address book: " + addressBook + " and user prefs " + userPrefs + "and initial admin");
 
         versionedAddressBook = new VersionedAddressBook(addressBook);
-        filteredPersons = new FilteredList<>(versionedAddressBook.getPersonList());
         filteredMachines = new FilteredList<>(versionedAddressBook.getMachineList());
         filteredAdmins = new FilteredList<>(versionedAddressBook.getAdminList());
 
@@ -136,31 +132,17 @@ public class ModelManager extends ComponentManager implements Model {
         raise(new MachineListChangedEvent(versionedAddressBook));
     }
 
-    // ============================== Person methods ======================================= //
-    @Override
-    public boolean hasPerson(Person person) {
-        requireNonNull(person);
-        return versionedAddressBook.hasPerson(person);
-    }
+    // TODO: 11/3/2018 REMOVE UNUSED METHOD
 
-    @Override
-    public void deletePerson(Person target) {
-        versionedAddressBook.removePerson(target);
-        indicateAddressBookChanged();
-    }
-
-    @Override
-    public void addPerson(Person person) {
-        versionedAddressBook.addPerson(person);
-        updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
-        indicateAddressBookChanged();
-    }
-
-    @Override
-    public void updatePerson(Person target, Person editedPerson) {
-        requireAllNonNull(target, editedPerson);
-        versionedAddressBook.updatePerson(target, editedPerson);
-        indicateAddressBookChanged();
+    /**
+     * Raises an event to indicate the model has changed
+     */
+    private void indicateJobListChanged() {
+        raise(new JobListChangedEvent(versionedAddressBook));
+        /**
+         * Since when job changes, it implicitly implies that machine list will change too
+         */
+        raise(new MachineListChangedEvent(versionedAddressBook));
     }
 
     // ============================== Job related methods ======================================= //
@@ -423,23 +405,6 @@ public class ModelManager extends ComponentManager implements Model {
         return versionedAddressBook.numAdmins();
     }
 
-    //=========== Filtered Person List Accessors =============================================================
-
-    /**
-     * Returns an unmodifiable view of the list of {@code Person} backed by the internal list of
-     * {@code versionedAddressBook}
-     */
-    @Override
-    public ObservableList<Person> getFilteredPersonList() {
-        return FXCollections.unmodifiableObservableList(filteredPersons);
-    }
-
-    @Override
-    public void updateFilteredPersonList(Predicate<Person> predicate) {
-        requireNonNull(predicate);
-        filteredPersons.setPredicate(predicate);
-    }
-
     //=========== Filtered Machine List Accessors ============================================================
 
     /**
@@ -554,8 +519,8 @@ public class ModelManager extends ComponentManager implements Model {
 
         // state check
         ModelManager other = (ModelManager) obj;
-        return versionedAddressBook.equals(other.versionedAddressBook) && (filteredPersons.equals(other.filteredPersons)
-            || filteredMachines.equals(other.filteredMachines));
+        return versionedAddressBook.equals(other.versionedAddressBook)
+            || filteredMachines.equals(other.filteredMachines);
     }
 
 
