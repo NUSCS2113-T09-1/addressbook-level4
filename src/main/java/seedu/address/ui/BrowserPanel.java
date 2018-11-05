@@ -40,10 +40,6 @@ public class BrowserPanel extends UiPart<Region> {
         registerAsAnEventHandler(this);
     }
 
-    private void loadPersonPage(Person person) {
-        loadPage(SEARCH_PAGE_URL + person.getName().fullName);
-    }
-
     public void loadPage(String url) {
         Platform.runLater(() -> browser.getEngine().load(url));
     }

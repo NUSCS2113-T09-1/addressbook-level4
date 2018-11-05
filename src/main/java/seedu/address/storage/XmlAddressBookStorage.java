@@ -100,15 +100,11 @@ public class XmlAddressBookStorage extends ComponentManager implements AddressBo
                                                                                         FileNotFoundException {
         requireNonNull(userPrefs);
 
-        Path mainAddressBookFile = userPrefs.getAddressBookFilePath();
         Path makerManagerMachinesFile = userPrefs.getMakerManagerMachinesFilePath();
         Path makerManagerAdminsFile = userPrefs.getMakerManagerAdminsFilePath();
 
 
         try {
-            if (!Files.exists(mainAddressBookFile)) {
-                FileUtil.createIfMissing(mainAddressBookFile);
-            }
             if (!Files.exists(makerManagerMachinesFile)) {
                 FileUtil.createIfMissing(makerManagerMachinesFile);
             }
@@ -127,16 +123,6 @@ public class XmlAddressBookStorage extends ComponentManager implements AddressBo
          * Will throw dataConversionError when the file is empty
          * or if incorrect format
          */
-
-        try {
-            XmlSerializableAddressBook xmlAddressBook = XmlFileStorage.loadDataFromSaveFile(mainAddressBookFile);
-            AddressBook mainAddressBookData = xmlAddressBook.toModelType();
-            fullAddressBookData.setPersons(mainAddressBookData.getPersonList());
-        } catch (DataConversionException dce) {
-            logger.info("Person conversion error");
-        } catch (IllegalValueException e) {
-            e.printStackTrace();
-        }
 
         try {
             XmlSerializableMakerManagerMachines xmlMakerManagerMachines =
