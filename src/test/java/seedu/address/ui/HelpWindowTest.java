@@ -62,8 +62,8 @@ public class HelpWindowTest extends GuiUnitTest {
         FxToolkit.setupStage(Stage::requestFocus);
         //TODO temporary commented out to pass travis test
         //assertFalse(helpWindow.getRoot().isFocused());
-//
-//        guiRobot.interact(helpWindow::focus);
-//        assertTrue(helpWindow.getRoot().isFocused());
+        //
+        //        guiRobot.interact(helpWindow::focus);
+        //        assertTrue(helpWindow.getRoot().isFocused());
     }
 }
