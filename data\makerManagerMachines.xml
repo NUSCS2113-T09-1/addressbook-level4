@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<MakerManagerMachines>
+    <machines>
+        <machineName>JJPrinter</machineName>
+        <status>ENABLED</status>
+        <jobs>
+            <name>iDCP2</name>
+            <machine>JJPrinter</machine>
+            <owner>
+                <name>TIAN YUAN</name>
+            </owner>
+            <addedTime>
+                <timeStamp>1541519979193</timeStamp>
+            </addedTime>
+            <startTime>
+                <timeStamp>1541519979193</timeStamp>
+            </startTime>
+            <priority>HIGH</priority>
+            <duration>5400000</duration>
+            <status>QUEUED</status>
+            <tagged>iDCP</tagged>
+            <note>This is for the iDCP project</note>
+        </jobs>
+    </machines>
+    <machines>
+        <machineName>TYPrinter</machineName>
+        <status>ENABLED</status>
+        <jobs>
+            <name>iDCP</name>
+            <machine>TYPrinter</machine>
+            <owner>
+                <name>TIAN YUAN</name>
+            </owner>
+            <addedTime>
+                <timeStamp>1541519969158</timeStamp>
+            </addedTime>
+            <startTime>
+                <timeStamp>1541519969158</timeStamp>
+            </startTime>
+            <priority>HIGH</priority>
+            <duration>5400000</duration>
+            <status>QUEUED</status>
+            <tagged>iDCP</tagged>
+            <note>This is for the iDCP project</note>
+        </jobs>
+    </machines>
+</MakerManagerMachines>
