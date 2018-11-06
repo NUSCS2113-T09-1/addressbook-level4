@@ -17,26 +17,25 @@ public class JobOwner {
 
     // Identity fields
     private final Name name;
-    
+
+
     /**
      * Every field must be present and not null.
      */
-    public JobOwner (Name name) {
+    public JobOwner(Name name) {
         requireNonNull(name);
         this.name = name;
     }
-    
 
     public Name getName() {
         return name;
     }
-    
 
     /**
      * Returns true if both jobOwners of the same name have at least one other identity field that is the same.
      * This defines a weaker notion of equality between two jobOwners.
      */
-    public boolean isSameJobOwner (JobOwner otherJobOwner) {
+    public boolean isSameJobOwner(JobOwner otherJobOwner) {
         if (otherJobOwner == this) {
             return true;
         }
@@ -49,7 +48,7 @@ public class JobOwner {
      * This defines a stronger notion of equality between two jobOwners.
      */
     @Override
-    public boolean equals (Object other) {
+    public boolean equals(Object other) {
         if (other == this) {
             return true;
         }
