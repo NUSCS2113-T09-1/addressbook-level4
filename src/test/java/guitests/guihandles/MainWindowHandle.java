@@ -28,7 +28,7 @@ public class MainWindowHandle extends StageHandle {
     }
 
     //    public PersonListPanelHandle getPersonListPanel() {
-        //        return personListPanel;
+    //        return personListPanel;
     //  }
 
     public ResultDisplayHandle getResultDisplay() {
