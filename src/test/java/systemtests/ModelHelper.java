@@ -26,6 +26,12 @@ public class ModelHelper {
     }
 
     /**
+     * @see ModelHelper#setFilteredMachineList(Model, List)
+     */
+    public static void setFilteredMachineList(Model model, Machine... toDisplay) {
+        setFilteredMachineList(model, Arrays.asList(toDisplay));
+    }
+    /**
      * Updates {@code model}'s filtered list to display only {@code toDisplay}.
      */
     public static void setFilteredAdminList(Model model, List<Admin> toDisplay) {
@@ -33,14 +39,7 @@ public class ModelHelper {
             toDisplay.stream().map(ModelHelper::getPredicateMatching).reduce(Predicate::or);
         model.updateFilteredAdminList(predicate.orElse(PREDICATE_MATCHING_NO_ADMINS));
     }
-
-    /**
-     * @see ModelHelper#setFilteredMachineList(Model, List)
-     */
-    public static void setFilteredMachineList(Model model, Machine... toDisplay) {
-        setFilteredMachineList(model, Arrays.asList(toDisplay));
-    }
-
+    
     /**
      * @see ModelHelper#setFilteredAdminList(Model, List)
      */

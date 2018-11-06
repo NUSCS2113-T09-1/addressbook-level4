@@ -13,7 +13,6 @@ import seedu.address.model.job.Job;
 import seedu.address.model.machine.exceptions.DuplicateMachineException;
 import seedu.address.model.machine.exceptions.MachineNotFoundException;
 import seedu.address.testutil.builders.MachineBuilder;
-import seedu.address.testutil.testdata.ValidJobs;
 import seedu.address.testutil.testdata.ValidMachines;
 
 public class UniqueMachineListTest {

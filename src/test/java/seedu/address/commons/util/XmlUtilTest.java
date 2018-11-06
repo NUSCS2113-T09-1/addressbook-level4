@@ -1,6 +1,5 @@
 package seedu.address.commons.util;
 
-import static org.junit.Assert.assertEquals;
 
 import java.io.FileNotFoundException;
 import java.nio.file.Path;
@@ -9,7 +8,6 @@ import java.util.Collections;
 import java.util.List;
 
 import javax.xml.bind.JAXBException;
-import javax.xml.bind.annotation.XmlRootElement;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -18,7 +16,6 @@ import org.junit.rules.ExpectedException;
 import seedu.address.model.AddressBook;
 import seedu.address.storage.XmlAdaptedTag;
 import seedu.address.testutil.TestUtil;
-import seedu.address.testutil.builders.AddressBookBuilder;
 
 
 public class XmlUtilTest {

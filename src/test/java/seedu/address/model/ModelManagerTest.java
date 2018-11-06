@@ -1,18 +1,5 @@
 package seedu.address.model;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
-
-import java.nio.file.Paths;
-import java.util.Arrays;
-
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
-
-import seedu.address.testutil.builders.AddressBookBuilder;
-
 public class ModelManagerTest {
     //TODO: reimplement the testing
     /*
