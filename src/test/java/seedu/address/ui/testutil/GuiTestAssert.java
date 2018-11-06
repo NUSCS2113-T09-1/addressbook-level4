@@ -1,10 +1,5 @@
 package seedu.address.ui.testutil;
 
-import static org.junit.Assert.assertEquals;
-
-import java.util.stream.Collectors;
-
-import guitests.guihandles.ResultDisplayHandle;
 
 /**
  * A set of assertion methods useful for writing GUI tests.

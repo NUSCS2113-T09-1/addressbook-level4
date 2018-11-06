@@ -1,6 +1,5 @@
 package seedu.address.storage.serializable;
 
-
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
