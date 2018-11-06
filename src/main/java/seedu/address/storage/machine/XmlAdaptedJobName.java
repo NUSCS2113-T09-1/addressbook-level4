@@ -8,9 +8,9 @@ import seedu.address.model.job.Job;
 import seedu.address.model.job.JobName;
 import seedu.address.model.job.JobNote;
 import seedu.address.model.job.JobOwner;
+import seedu.address.model.job.Name;
 import seedu.address.model.job.Priority;
 import seedu.address.model.machine.MachineName;
-import seedu.address.model.job.Name;
 
 
 /**
