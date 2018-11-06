@@ -1,15 +1,5 @@
 package seedu.address.model.machine;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
-
-import seedu.address.model.job.exceptions.DuplicateJobException;
-import seedu.address.testutil.testdata.ValidJobs;
-import seedu.address.testutil.testdata.ValidMachines;
 
 public class MachineTest {
     /*

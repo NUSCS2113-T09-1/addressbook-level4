@@ -1,6 +1,5 @@
 package seedu.address.storage.serializable;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -11,9 +10,7 @@ import org.junit.rules.ExpectedException;
 
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.commons.util.XmlUtil;
-import seedu.address.model.AddressBook;
 import seedu.address.storage.machine.XmlSerializableMakerManagerMachines;
-import seedu.address.testutil.testdata.ValidMachines;
 
 public class XmlSerializableMakerManagerMachinesTest {
 
@@ -26,14 +23,16 @@ public class XmlSerializableMakerManagerMachinesTest {
     @Rule
     public ExpectedException thrown = ExpectedException.none();
 
-//    @Test
-//    public void toModelType_validMachinesFile_success() throws Exception {
-//        XmlSerializableMakerManagerMachines dataFromFile =
-//                XmlUtil.getDataFromFile(VALID_MACHINES_FILE, XmlSerializableMakerManagerMachines.class);
-//        AddressBook makerManagerMachinesFile = dataFromFile.toModelType();
-//        AddressBook validMakerManagerMachines = ValidMachines.getMachinesData();
-//        assertEquals(makerManagerMachinesFile, validMakerManagerMachines);
-//    }
+    /*
+    @Test
+    public void toModelType_validMachinesFile_success() throws Exception {
+        XmlSerializableMakerManagerMachines dataFromFile =
+                XmlUtil.getDataFromFile(VALID_MACHINES_FILE, XmlSerializableMakerManagerMachines.class);
+        AddressBook makerManagerMachinesFile = dataFromFile.toModelType();
+        AddressBook validMakerManagerMachines = ValidMachines.getMachinesData();
+        assertEquals(makerManagerMachinesFile, validMakerManagerMachines);
+    }
+    */
 
     @Test
     public void toModelType_invalidMachinesFile_throwsNullPointerException () throws Exception {

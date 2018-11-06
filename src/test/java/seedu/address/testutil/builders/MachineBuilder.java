@@ -15,7 +15,6 @@ import seedu.address.model.tag.Tag;
 /**
  * A utility class to help with building Machine objects.
  */
-
 public class MachineBuilder {
 
     public static final String DEFAULT_MACHINE_NAME = "MakerManagerPrinter";

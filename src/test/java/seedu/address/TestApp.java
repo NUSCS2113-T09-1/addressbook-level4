@@ -1,25 +1,5 @@
 package seedu.address;
 
-import java.io.IOException;
-import java.nio.file.Path;
-import java.util.function.Supplier;
-
-import javafx.stage.Screen;
-import javafx.stage.Stage;
-import seedu.address.commons.core.Config;
-import seedu.address.commons.core.GuiSettings;
-import seedu.address.commons.exceptions.DataConversionException;
-import seedu.address.commons.util.FileUtil;
-import seedu.address.commons.util.XmlUtil;
-import seedu.address.model.AddressBook;
-import seedu.address.model.Model;
-import seedu.address.model.ModelManager;
-import seedu.address.model.ReadOnlyAddressBook;
-import seedu.address.model.UserPrefs;
-import seedu.address.storage.UserPrefsStorage;
-import seedu.address.testutil.TestUtil;
-import systemtests.ModelHelper;
-
 /**
  * This class is meant to override some properties of MainApp so that it will be suited for
  * testing

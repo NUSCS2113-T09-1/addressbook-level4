@@ -6,10 +6,12 @@ import java.util.List;
 
 import seedu.address.model.AddressBook;
 import seedu.address.model.job.Job;
+import seedu.address.model.job.JobOwner;
 import seedu.address.model.job.Priority;
 import seedu.address.model.job.Status;
 import seedu.address.model.machine.MachineStatus;
 import seedu.address.testutil.builders.JobBuilder;
+import seedu.address.testutil.builders.JobOwnerBuilder;
 import seedu.address.testutil.builders.MachineBuilder;
 
 /**
