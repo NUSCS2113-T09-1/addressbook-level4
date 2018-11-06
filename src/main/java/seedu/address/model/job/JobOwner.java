@@ -13,8 +13,7 @@ public class JobOwner {
     public static final String MESSAGE_OWNERNAME_CONSTRAINTS =
         "Owner names should only contain alphanumeric characters and spaces, "
             + "and it should not be blank";
-    public static final String MESSAGE_JOBOWNER_CONSTRAINTS =
-        "Job owner's name should only contain alphanumeric characters and spaces, and it should not be blank";
+
 
     // Identity fields
     private final Name name;
@@ -22,7 +21,7 @@ public class JobOwner {
     /**
      * Every field must be present and not null.
      */
-    public JobOwner(Name name) {
+    public JobOwner (Name name) {
         requireNonNull(name);
         this.name = name;
     }
@@ -37,7 +36,7 @@ public class JobOwner {
      * Returns true if both jobOwners of the same name have at least one other identity field that is the same.
      * This defines a weaker notion of equality between two jobOwners.
      */
-    public boolean isSameJobOwner(JobOwner otherJobOwner) {
+    public boolean isSameJobOwner (JobOwner otherJobOwner) {
         if (otherJobOwner == this) {
             return true;
         }
@@ -50,7 +49,7 @@ public class JobOwner {
      * This defines a stronger notion of equality between two jobOwners.
      */
     @Override
-    public boolean equals(Object other) {
+    public boolean equals (Object other) {
         if (other == this) {
             return true;
         }
