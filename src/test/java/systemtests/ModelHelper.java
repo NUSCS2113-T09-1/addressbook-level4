@@ -39,7 +39,7 @@ public class ModelHelper {
             toDisplay.stream().map(ModelHelper::getPredicateMatching).reduce(Predicate::or);
         model.updateFilteredAdminList(predicate.orElse(PREDICATE_MATCHING_NO_ADMINS));
     }
-    
+
     /**
      * @see ModelHelper#setFilteredAdminList(Model, List)
      */
