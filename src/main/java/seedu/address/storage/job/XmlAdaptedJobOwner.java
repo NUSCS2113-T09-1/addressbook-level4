@@ -1,8 +1,6 @@
 package seedu.address.storage.job;
 
-
 import java.util.Objects;
-
 import javax.xml.bind.annotation.XmlElement;
 
 import seedu.address.commons.exceptions.IllegalValueException;
