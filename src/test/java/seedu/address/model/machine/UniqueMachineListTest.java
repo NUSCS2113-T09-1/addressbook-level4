@@ -1,6 +1,8 @@
 package seedu.address.model.machine;
 
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -13,6 +15,7 @@ import seedu.address.model.job.Job;
 import seedu.address.model.machine.exceptions.DuplicateMachineException;
 import seedu.address.model.machine.exceptions.MachineNotFoundException;
 import seedu.address.testutil.builders.MachineBuilder;
+import seedu.address.testutil.testdata.ValidJobs;
 import seedu.address.testutil.testdata.ValidMachines;
 
 public class UniqueMachineListTest {
@@ -96,7 +99,8 @@ public class UniqueMachineListTest {
     @Test
     public void containsSameNameMachine() {
         myList.add(ValidMachines.JJPRINTER);
-        Machine testMachine = new MachineBuilder().withName("JJPrinter").withStatus(MachineStatus.ENABLED).build();
+        Machine testMachine = new MachineBuilder().withMachineName("JJPrinter").withMachineStatus(MachineStatus.ENABLED)
+            .build();
         assertTrue(myList.containsSameNameMachine(testMachine));
     }
 
@@ -125,7 +129,7 @@ public class UniqueMachineListTest {
     // compile with gradle to see
     @Test
     public void addJobToMachineList() {
-        myList.add(new MachineBuilder().withName("JJPrinter").withStatus(MachineStatus.ENABLED).build());
+        myList.add(new MachineBuilder().withMachineName("JJPrinter").withMachineStatus(MachineStatus.ENABLED).build());
         Job jobToAdd = ValidJobs.job1();
         myList.addJobToMachineList(ValidJobs.job1());
         Machine addedJobMachine = myList.findMachine(new MachineName("JJPrinter"));
@@ -138,8 +142,5 @@ public class UniqueMachineListTest {
         myList.add(ValidMachines.TYPRINTER);
         myList.addJobToMachineList(ValidJobs.job1());
     }
-
-
-    */
 
 }

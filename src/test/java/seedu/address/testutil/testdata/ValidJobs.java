@@ -24,7 +24,7 @@ public class ValidJobs {
         return new JobBuilder().withName("IDCP").withMachine(
             new MachineBuilder().withMachineName("JJPrinter").withMachineStatus(MachineStatus.ENABLED).build()
                 .getName()).withJobNote("This is jj jobnote").withDuration(2).withPriority(Priority.HIGH)
-            .withOwner(new PersonBuilder().withName("Jun jie").build()).withStatus(Status.QUEUED).build();
+            .withOwner(new JobOwnerBuilder().withName("Jun jie").build()).withStatus(Status.QUEUED).build();
     }
 
     /**
@@ -34,7 +34,7 @@ public class ValidJobs {
         return new JobBuilder().withName("NEWPROJECT").withMachine(
             new MachineBuilder().withMachineName("TyPrinter").withMachineStatus(MachineStatus.ENABLED).build()
                 .getName()).withJobNote("This is newproject jobnote").withDuration(2).withPriority(Priority.HIGH)
-            .withOwner(new PersonBuilder().withName("TianYuan").build()).withStatus(Status.FINISHED).build();
+            .withOwner(new JobOwnerBuilder().withName("TianYuan").build()).withStatus(Status.FINISHED).build();
     }
 
     /**
@@ -44,7 +44,7 @@ public class ValidJobs {
         return new JobBuilder().withName("bumblebee").withMachine(
             new MachineBuilder().withMachineName("BumberbeePrinter").withMachineStatus(MachineStatus.ENABLED).build()
                 .getName()).withJobNote("This is BUMBERBEE jobnote").withDuration(1).withPriority(Priority.NORMAL)
-            .withOwner(new PersonBuilder().withName("Bumble bee").build()).withStatus(Status.CANCELLED).build();
+            .withOwner(new JobOwnerBuilder().withName("Bumble bee").build()).withStatus(Status.CANCELLED).build();
     }
 
     public static AddressBook getJobsData() {

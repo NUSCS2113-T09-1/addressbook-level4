@@ -29,6 +29,7 @@ import seedu.address.model.job.exceptions.JobNotStartedException;
 import seedu.address.model.job.exceptions.JobOngoingException;
 import seedu.address.model.machine.Machine;
 import seedu.address.model.machine.MachineName;
+import seedu.address.model.machine.exceptions.MachineNotFoundException;
 
 
 /**
