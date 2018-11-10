@@ -19,8 +19,8 @@ import org.junit.rules.ExpectedException;
 
 import seedu.address.model.machine.MachineStatus;
 import seedu.address.testutil.builders.JobBuilder;
+import seedu.address.testutil.builders.JobOwnerBuilder;
 import seedu.address.testutil.builders.MachineBuilder;
-import seedu.address.testutil.builders.PersonBuilder;
 
 public class JobTest {
     @Rule
@@ -47,7 +47,7 @@ public class JobTest {
         assertFalse(IDCP.isSameJob(editedIdcp));
 
         /* different owner -> returns false */
-        editedIdcp = new JobBuilder().withOwner(new PersonBuilder().build()).build();
+        editedIdcp = new JobBuilder().withOwner(new JobOwnerBuilder().build()).build();
         assertFalse(IDCP.isSameJob(editedIdcp));
 
         // different machine -> returns false
@@ -104,11 +104,11 @@ public class JobTest {
         editedIdcp = new JobBuilder().withName("IDCP").withMachine(
             new MachineBuilder().withMachineName("JJPrinter").withMachineStatus(MachineStatus.ENABLED).build()
                 .getName()).withJobNote("This is jj jobnote").withDuration(2).withPriority(Priority.HIGH)
-            .withOwner(new PersonBuilder().withName("Jun jie").build()).withStatus(QUEUED).build();
+            .withOwner(new JobOwnerBuilder().withName("Jun jie").build()).withStatus(QUEUED).build();
         assertFalse(IDCP.equals(editedIdcp));
 
         // different owner -> returns false
-        editedIdcp = new JobBuilder(IDCP).withOwner(new PersonBuilder().build()).build();
+        editedIdcp = new JobBuilder(IDCP).withOwner(new JobOwnerBuilder().build()).build();
         assertFalse(IDCP.equals(editedIdcp));
 
 
