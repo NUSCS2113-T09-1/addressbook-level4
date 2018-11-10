@@ -28,6 +28,8 @@ import seedu.address.model.job.Priority;
 import seedu.address.model.job.Status;
 import seedu.address.model.machine.Machine;
 import seedu.address.model.machine.MachineNameContainsKeywordsPredicate;
+import seedu.address.model.machine.MachineStatus;
+import seedu.address.testutil.builders.EditMachineDescriptorBuilder;
 
 /**
  * Contains helper methods for testing commands.
@@ -122,6 +124,19 @@ public class CommandTestUtil {
             throw new AssertionError("Execution of command should not fail.", ce);
         }
     }
+
+    public static final EditMachineCommand.EditMachineDescriptor DESC_ULTIMAKER;
+    public static final EditMachineCommand.EditMachineDescriptor DESC_ENDER;
+
+    static {
+        DESC_ULTIMAKER =
+            new EditMachineDescriptorBuilder().withName(VALID_MACHINE_NAME_ULTIMAKER).withStatus(MachineStatus.ENABLED)
+                .build();
+        DESC_ENDER =
+            new EditMachineDescriptorBuilder().withName(VALID_MACHINE_NAME_ENDER).withStatus(MachineStatus.ENABLED)
+                .build();
+    }
+
 
     /**
      * Executes the given {@code command}, confirms that <br>
