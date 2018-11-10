@@ -32,7 +32,7 @@ public class JobBuilder {
     private MachineName machine;
     private TimeStamp startTime;
     private JobOwner owner;
-    private final String addedTime;
+    private TimeStamp addedTime;
 
     //Data field
     private Set<Tag> tags;

@@ -26,14 +26,14 @@ public class AddressBookParserTest {
     private final AddressBookParser parser = new AddressBookParser();
 
     //DISABLED
-    /*
+
     @Test
     public void parseCommand_exit() throws Exception {
         assertTrue(parser.parseCommand(ExitCommand.COMMAND_WORD) instanceof ExitCommand);
         assertTrue(parser.parseCommand(ExitCommand.COMMAND_WORD + " 3") instanceof ExitCommand);
     }
 
-    /*
+
     @Test
     public void parseCommand_help() throws Exception {
         assertTrue(parser.parseCommand(HelpCommand.COMMAND_WORD) instanceof HelpCommand);
@@ -53,7 +53,7 @@ public class AddressBookParserTest {
         }
     }
 
-    /*
+
     @Test
     public void parseCommand_login() throws Exception {
         assertTrue(parser.parseCommand(LoginCommand.COMMAND_WORD + " testUN testPW") instanceof LoginCommand);

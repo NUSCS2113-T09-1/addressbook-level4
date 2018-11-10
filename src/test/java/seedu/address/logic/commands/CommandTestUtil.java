@@ -24,6 +24,8 @@ import seedu.address.logic.commands.machine.EditMachineCommand;
 import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
 import seedu.address.model.admin.Admin;
+import seedu.address.model.job.Priority;
+import seedu.address.model.job.Status;
 import seedu.address.model.machine.Machine;
 import seedu.address.model.machine.MachineNameContainsKeywordsPredicate;
 
