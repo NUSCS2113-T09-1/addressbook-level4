@@ -1,17 +1,27 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>PLACEHOLDER - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Fu Tianyuan - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="../images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li><li class="nav-item"><a class="nav-link active" href="../index.html">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">MakerManager</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://cs2113-ay1819s1-t09-1.github.io/main/"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>PLACEHOLDER - Project Portfolio</h1></div><div id="content"><div class="sect1">
-<h2 id="project-addressbook-level-4"><a class="link" href="#project-addressbook-level-4">PROJECT: AddressBook - Level 4</a></h2>
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">MakerManager</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://cs2113-ay1819s1-t09-1.github.io/main/"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Fu Tianyuan - Project Portfolio</h1></div><div id="content"><div class="sect1">
+<h2 id="project-makermanager"><a class="link" href="#project-makermanager">PROJECT: MakerManager</a></h2>
 <div class="sectionbody">
-<hr>
+
 </div>
 </div>
 <div class="sect1">
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>PLACEHOLDERPLACEHOLDERPLACEHOLDERPLACEHOLDERPLACEHOLDERPLACEHOLDERPLACEHOLDERPLACEHOLDERPLACEHOLDERPLACEHOLDERPLACEHOLDERPLACEHOLDERPLACEHOLDERPLACEHOLDERPLACEHOLDERPLACEHOLDERPLACEHOLDERPLACEHOLDER
-AddressBook - Level 4 is a desktop address book application used for teaching Software Engineering principles. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.</p>
+<p>This document is meant for recording the contributions I have committed and the role played in the developing of this project.</p>
+</div>
+<div class="paragraph">
+<p>MakerManger is a free, open-sourced desktop application developed to improve the efficiency of existing facilities at makerspace at SoC. Currently, the facilities are mostly 3D printers.
+Without the traditional tedious and complicated method of managing the usage of the facilities, MakerManger provides a real-time list and appended job queue for each. Algorithms are also able to provide the tasking method which consumes least time.</p>
+</div>
+<div class="paragraph">
+<p>In abstract, MakerManager has these features:<br>
+* A 2-level access system, for the normal users and lab managers.<br>
+* Normal users can add jobs to specified machines or let the system help them allocate to the most free one.<br>
+* Admin users can register/deregister machines, manage job queues of machines.<br>
+* All users can monitor the status of machines and printing progress of all jobs.</p>
 </div>
 </div>
 </div>
@@ -21,29 +31,57 @@ AddressBook - Level 4 is a desktop address book application used for teaching So
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>the ability to undo/redo previous commands</strong></p>
+<p><strong>Major enhancement</strong>: added <strong>Job class and relevant classes in storage and UI component</strong></p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.</p>
+<p>What it does: allows the developers to work on these components to add more features.</p>
 </li>
 <li>
-<p>Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.</p>
+<p>Justification: These classes are crucial to MakerManager, as all the features related to jobs are based on them.</p>
 </li>
 <li>
-<p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.</p>
+<p>Credits: The development of version 1.0 is done fully by me. Later on, Teo Jun Jie (one of our team member) fixed some bugs of the integration with the storage component and UI component. After that, I picked up and added some small changes.</p>
 </li>
 <li>
-<p>Credits: <em>{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}</em></p>
+<p>View on: <a href="https://github.com/CS2113-AY1819S1-T09-1/main/pull/4">PR#4</a> and <a href="https://github.com/CS2113-AY1819S1-T09-1/main/pull/27">PR#27</a></p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: added a history command that allows the user to navigate to previous commands using up/down keys.</p>
+<p><strong>Major enhancement</strong>: added <strong>addJob command</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: allows the user to add a job with specified name and priority to the job list.</p>
 </li>
 <li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
+<p>Justification: This feature is one of the key features of MakerManger. Without this, users will not be able to add any jobs to any machine.</p>
+</li>
+<li>
+<p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.</p>
+</li>
+<li>
+<p>Credits: The development of version 1.0 is done fully by me. Later on, Teo Jun Jie (one of our team member) fixed some bugs of the integration with the storage component and UI component. After that, I picked up and added some small changes.</p>
+</li>
+<li>
+<p>View on: <a href="https://github.com/CS2113-AY1819S1-T09-1/main/pull/34">PR#34</a> and <a href="https://github.com/CS2113-AY1819S1-T09-1/main/pull/50">PR#50</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: added the findJob, listJobs command for users to locate a job by name. <a href="https://github.com/CS2113-AY1819S1-T09-1/main/pull/50">PR#50</a></p>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: implemented the TimeStamp object for version 1.0. TimeStamp was refactored by Sean. <a href="https://github.com/CS2113-AY1819S1-T09-1/main/pull/77">PR#77</a></p>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: refactored all the codes and removed all the irrelevant person class. <a href="https://github.com/CS2113-AY1819S1-T09-1/main/pull/154">PR#154</a></p>
+</li>
+<li>
+<p><strong>Code contributed</strong>: You can see my code contributions in this <a href="https://nuscs2113-ay1819s1.github.io/dashboard/#=undefined&amp;search=ftywan">Code Dashboard by Reposense</a></p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
@@ -54,7 +92,10 @@ AddressBook - Level 4 is a desktop address book application used for teaching So
 <div class="ulist">
 <ul>
 <li>
-<p>Managed releases <code>v1.3</code> - <code>v1.5rc</code> (3 releases) on GitHub</p>
+<p>Managed releases <code>v1.3</code> - <code>v1.4</code> (2 releases) on GitHub</p>
+</li>
+<li>
+<p>Post issues in the <a href="https://github.com/CS2113-AY1819S1-T09-1/main/issues">Issue Tracker</a>.</p>
 </li>
 </ul>
 </div>
@@ -64,10 +105,10 @@ AddressBook - Level 4 is a desktop address book application used for teaching So
 <div class="ulist">
 <ul>
 <li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
+<p>Updated the color scheme of JobCards in GUI based on <a href="https://material.io/design/color/the-color-system.html#tools-for-picking-colors">Google&#8217;s Material Design Color Pattern</a>.</p>
 </li>
 <li>
-<p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
+<p>Wrote additional tests for existing features of jobs</p>
 </li>
 </ul>
 </div>
@@ -77,7 +118,13 @@ AddressBook - Level 4 is a desktop address book application used for teaching So
 <div class="ulist">
 <ul>
 <li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
+<p>Format check of the developer Guide.</p>
+</li>
+<li>
+<p>Updated the User Guide and Developer Guide for my features.</p>
+</li>
+<li>
+<p>Add on the manual testing cases in the Developer Guide.</p>
 </li>
 </ul>
 </div>
@@ -87,29 +134,10 @@ AddressBook - Level 4 is a desktop address book application used for teaching So
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
+<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com/CS2113-AY1819S1-T09-1/main/pull/33">PR#33</a>, <a href="https://github.com/CS2113-AY1819S1-T09-1/main/pull/65">PR#65</a></p>
 </li>
 <li>
-<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
-</li>
-<li>
-<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
-</li>
-<li>
-<p>Some parts of the history feature I added was adopted by several other class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Tools:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Integrated a third party library (Natty) to the project (<a href="https://github.com">#42</a>)</p>
-</li>
-<li>
-<p>Integrated a new Github plugin (CircleCI) to the team repo</p>
+<p>Participated in the <a href="https://github.com/nusCS2113-AY1819S1/forum/issues/99">forum discussions</a>.</p>
 </li>
 </ul>
 </div>
@@ -118,9 +146,6 @@ AddressBook - Level 4 is a desktop address book application used for teaching So
 </div>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
 </div>
 </div>
 </div>
@@ -137,6 +162,193 @@ AddressBook - Level 4 is a desktop address book application used for teaching So
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="command-summary"><a class="link" href="#command-summary">Command Summary</a></h3>
+<div class="paragraph">
+<p>This is a nifty little list you can print and paste somewhere for quick reference.<br></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>help</p>
+</li>
+<li>
+<p>undo</p>
+</li>
+<li>
+<p>redo</p>
+</li>
+<li>
+<p>history</p>
+</li>
+<li>
+<p>login ADMIN_ID PASSWORD</p>
+</li>
+<li>
+<p>logout</p>
+</li>
+<li>
+<p>addAdmin USERNAME PASSWORD VERIFY_PASSWORD</p>
+</li>
+<li>
+<p>removeAdmin USERNAME</p>
+</li>
+<li>
+<p>updatePassword USERNAME OLD_PW NEW_PW NEW_PW_VERIFY</p>
+</li>
+<li>
+<p>addMachine n/MACHINE_NAME ms/STATUS</p>
+</li>
+<li>
+<p>editMachine MACHINE_NAME [n/MACHINE_NAME] [ms/STATUS]</p>
+</li>
+<li>
+<p>manageMachine MACHINE_NAME remove</p>
+</li>
+<li>
+<p>manageMachine MACHINE_NAME flush</p>
+</li>
+<li>
+<p>manageMachine MACHINE_NAME flush AUTO</p>
+</li>
+<li>
+<p>manageMachine MACHINE_NAME clean</p>
+</li>
+<li>
+<p>findMachine [MACHINE_NAME_1] [MACHINE_NAME_2]</p>
+</li>
+<li>
+<p>listMachines</p>
+</li>
+<li>
+<p>addJob n/PRINT_NAME m/MACHINE_NAME on/OWNER NAME pr/PRIORITY d/DURATION(in hours) jn/NOTE [t/TAG]</p>
+</li>
+<li>
+<p>manageJob JOB_NAME start</p>
+</li>
+<li>
+<p>manageJob JOB_NAME cancel</p>
+</li>
+<li>
+<p>manageJob JOB_NAME restart</p>
+</li>
+<li>
+<p>manageJob JOB_NAME swap TARGET_JOB_NAME</p>
+</li>
+<li>
+<p>manageJob JOB_NAME move TARGET_MACHINE_NAME</p>
+</li>
+<li>
+<p>manageJob JOB_NAME shift up</p>
+</li>
+<li>
+<p>manageJob JOB_NAME shift down</p>
+</li>
+<li>
+<p>manageJob JOB_NAME delete</p>
+</li>
+<li>
+<p>requestDeletion n/JOB_NAME</p>
+</li>
+<li>
+<p>findJob [JOB_NAME_1] [JOB_NAME_2]</p>
+</li>
+<li>
+<p>listJobs</p>
+</li>
+<li>
+<p>exit</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="addjob-version-1-0"><a class="link" href="#addjob-version-1-0">AddJob Version 1.0</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Add a Print Job</strong><br>
+Adds a print job to a machine&#8217;s queue in MakerManager.<br>
+Outcome: You will see the job in if you scroll down the queue of the machine you specified.<br>
+<em>Specifying <code>AUTO</code> as MACHINE_NAME will let the software optimize which queue to add the print to.<br>
+Available priorities: <code>URGENT</code>, <code>HIGH</code>, <code>NORMAL</code>.<br>
+Please note that <code>PRIORITY</code> is currently just a display feature aimed at helping the lab manager gain more information.</em><br></p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Prints cannot be added to <code>disabled</code> Machines!<br>
+Multiple tags can be added to one print job.
+</td>
+</tr>
+</table>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Format: addJob n/PRINT_NAME m/MACHINE_NAME on/OWNER_NAME pr/PRIORITY d/DURATION(in hours) jn/NOTE [t/TAG]...</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Example: addJob n/iDCP m/UpBox on/TIAN YUAN pr/HIGH d/1.5 jn/This is for the iDCP project t/iDCP</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="find-job-and-list-jobs"><a class="link" href="#find-job-and-list-jobs">Find Job and List Jobs</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Finding Prints:</strong>
+Finds Jobs based on given keywords. You have to give at least 1 argument.<br>
+Outcome: You will see only matching Jobs shown in the UI.<br></p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+After the filtered job list is displayed, use the <code>listJobs</code> command to return to the main menu.<br>
+</td>
+</tr>
+</table>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Format: findJob [JOB_NAME_1] [JOB_NAME_2]...</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Example: findJob gears chassis cup</pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Listing Prints</strong><br>
+Lists all prints.<br>
+Outcome: All Prints will be visible in the UI.<br></p>
+<div class="literalblock">
+<div class="content">
+<pre>Format: listJobs</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Example: listJobs</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -153,221 +365,213 @@ AddressBook - Level 4 is a desktop address book application used for teaching So
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">Undo/Redo feature</a></h3>
-<div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<h3 id="diagram-in-model-component"><a class="link" href="#diagram-in-model-component">Diagram in Model Component</a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="Design-Model"><a class="link" href="#Design-Model">Model component</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ModelComponentClassDiagramV1.4.3.png" alt="ModelComponentClassDiagramV1.4.3" width="800">
+</div>
+<div class="title">Figure 1. Structure of the Model Component</div>
+</div>
 <div class="paragraph">
-<p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
-It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
-Additionally, it implements the following operations:</p>
+<p><strong>API</strong> : <a href="{repoURL}/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a></p>
+</div>
+<div class="paragraph">
+<p>The <code>Model</code>,</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>VersionedAddressBook#commit()</code>&#8201;&#8212;&#8201;Saves the current address book state in its history.</p>
+<p>stores the Address Book data.</p>
 </li>
 <li>
-<p><code>VersionedAddressBook#undo()</code>&#8201;&#8212;&#8201;Restores the previous address book state from its history.</p>
+<p>exposes an unmodifiable <code>ObservableList&lt;Admin&gt;</code> that can be 'observed'</p>
 </li>
 <li>
-<p><code>VersionedAddressBook#redo()</code>&#8201;&#8212;&#8201;Restores a previously undone address book state from its history.</p>
+<p>exposes an unmodifiable <code>ObservableList&lt;Job&gt;</code> that can be 'observed' in machines</p>
+</li>
+<li>
+<p>exposes an unmodifiable <code>ObservableList&lt;Machine&gt;</code> that can be 'observed'</p>
+</li>
+<li>
+<p>eg. the UI can be bound to these 3 lists so that the UI automatically updates when the data in any of the list changes.</p>
+</li>
+<li>
+<p>does not depend on any of the other three components.</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p>These operations are exposed in the <code>Model</code> interface as <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> and <code>Model#redoAddressBook()</code> respectively.</p>
-</div>
-<div class="paragraph">
-<p>Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.</p>
-</div>
-<div class="paragraph">
-<p>Step 1. The user launches the application for the first time. The <code>VersionedAddressBook</code> will be initialized with the initial address book state, and the <code>currentStatePointer</code> pointing to that single address book state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoStartingStateListDiagram.png" alt="UndoRedoStartingStateListDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 2. The user executes <code>delete 5</code> command to delete the 5th person in the address book. The <code>delete</code> command calls <code>Model#commitAddressBook()</code>, causing the modified state of the address book after the <code>delete 5</code> command executes to be saved in the <code>addressBookStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted address book state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoNewCommand1StateListDiagram.png" alt="UndoRedoNewCommand1StateListDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 3. The user executes <code>add n/David &#8230;&#8203;</code> to add a new person. The <code>add</code> command also calls <code>Model#commitAddressBook()</code>, causing another modified address book state to be saved into the <code>addressBookStateList</code>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoNewCommand2StateListDiagram.png" alt="UndoRedoNewCommand2StateListDiagram" width="800">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If a command fails its execution, it will not call <code>Model#commitAddressBook()</code>, so the address book state will not be saved into the <code>addressBookStateList</code>.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undoAddressBook()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous address book state, and restores the address book to that state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoExecuteUndoStateListDiagram.png" alt="UndoRedoExecuteUndoStateListDiagram" width="800">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currentStatePointer</code> is at index 0, pointing to the initial address book state, then there are no previous address book states to restore. The <code>undo</code> command uses <code>Model#canUndoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the undo.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how the undo operation works:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoSequenceDiagram.png" alt="UndoRedoSequenceDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoAddressBook()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the address book to that state.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currentStatePointer</code> is at index <code>addressBookStateList.size() - 1</code>, pointing to the latest address book state, then there are no undone address book states to restore. The <code>redo</code> command uses <code>Model#canRedoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Step 5. The user then decides to execute the command <code>list</code>. Commands that do not modify the address book, such as <code>list</code>, will usually not call <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> or <code>Model#redoAddressBook()</code>. Thus, the <code>addressBookStateList</code> remains unchanged.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoNewCommand3StateListDiagram.png" alt="UndoRedoNewCommand3StateListDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitAddressBook()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>addressBookStateList</code>, all address book states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoNewCommand4StateListDiagram.png" alt="UndoRedoNewCommand4StateListDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user executes a new command:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoActivityDiagram.png" alt="UndoRedoActivityDiagram" width="650">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Saves the entire address book.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy to implement.</p>
-</li>
-<li>
-<p>Cons: May have performance issues in terms of memory usage.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Individual command knows how to undo/redo by itself.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Will use less memory (e.g. for <code>delete</code>, just save the person being deleted).</p>
-</li>
-<li>
-<p>Cons: We must ensure that the implementation of each individual command are correct.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="aspect-data-structure-to-support-the-undo-redo-commands"><a class="link" href="#aspect-data-structure-to-support-the-undo-redo-commands">Aspect: Data structure to support the undo/redo commands</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Use a list to store the history of address book states.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.</p>
-</li>
-<li>
-<p>Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>VersionedAddressBook</code>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Use <code>HistoryManager</code> for undo/redo</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: We do not need to maintain a separate list, and just reuse what is already in the codebase.</p>
-</li>
-<li>
-<p>Cons: Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as <code>HistoryManager</code> now needs to do two different things.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">[Proposed] Data Encryption</a></h3>
+<h3 id="diagram-in-storage-component"><a class="link" href="#diagram-in-storage-component">Diagram in Storage Component</a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="Design-Storage"><a class="link" href="#Design-Storage">Storage component</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="../images/StorageComponentClassDiagramCompleted.png" alt="StorageComponentClassDiagramCompleted" width="800">
+</div>
+<div class="title">Figure 2. Structure of the Storage Component</div>
+</div>
 <div class="paragraph">
-<p><em>{Explain here how the data encryption feature will be implemented}</em></p>
+<p><strong>API</strong> : <a href="{repoURL}/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
+</div>
+<div class="paragraph">
+<p>The <code>Storage</code> component,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>stores an initialized <code>UserPref</code> object that represents the user&#8217;s preferences derived from
+JsonUserPrefsStorage</p>
+</li>
+<li>
+<p>can save <code>UserPref</code> objects in json format and read it back.</p>
+</li>
+<li>
+<p>can save the Address Book data in 2 separate xml format</p>
+<div class="ulist">
+<ul>
+<li>
+<p>XmlSerializableMakerManagerAdmins</p>
+</li>
+<li>
+<p>XmlSerializableMakerManagerMachines</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="manual-testing-cases"><a class="link" href="#manual-testing-cases">Manual Testing Cases</a></h3>
+<div class="paragraph">
+<p><em>Due to the limit of page, full testing cases can be referred in the Developer Guide.
+</em></p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">PROJECT: PowerPointLabs</a></h2>
+<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix A: Instructions for Manual Testing</a></h2>
 <div class="sectionbody">
-<hr>
 <div class="paragraph">
-<p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
+<p>Given below are instructions to test the app manually.</p>
+</div>
+<div class="paragraph">
+<p>Testers are encouraged to follow the testing codes sequentially.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+These instructions only provide a starting point for testers to work on; testers are expected to do more <em>exploratory</em> testing.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">Launch and Shutdown</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Initial launch</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Download the jar file and copy into an empty folder</p>
+</li>
+<li>
+<p>Download the data files by downloading the DemoDataV1.4.zip from the root.</p>
+</li>
+<li>
+<p>Unzip and save the data files in a folder called 'data' in the same directoryin which you saved the jar file on your computer.</p>
+<div class="literalblock">
+<div class="content">
+<pre>The 'data' file should contain the 3 files below.
+data/addressBook.xml
+data/makerManagerAdmins.xml
+data/makerManagerMachines.xml</pre>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-10 01:48:39 UTC</div></div></div></body></html>
+</li>
+<li>
+<p>Double-click the jar file</p>
+<div class="literalblock">
+<div class="content">
+<pre>Expected view:
+Shows the GUI with a list of printers displayed horizontally where each column represents a printer with print jobs assigned to it.
+These printers are already pre-added to the maker manager local database.
+The window size may not be optimum.</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Saving window preferences</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Resize the window to an optimum size. Move the window to a different location. Close the window.</p>
+</li>
+<li>
+<p>Re-launch the app by double-clicking the jar file.<br>
+Expected: The most recent window size and location is retained.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Leaving the app:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Enter the command:</p>
+<div class="literalblock">
+<div class="content">
+<pre>exit</pre>
+</div>
+</div>
+</li>
+<li>
+<p>The window shall close automatically.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ease-of-use"><a class="link" href="#ease-of-use">Ease of use</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Test case: help window activation</p>
+<div class="literalblock">
+<div class="content">
+<pre>help</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Expected:
+A pop-up window containing the user guide will be displayed.</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 11:01:05 UTC</div></div></div></body></html>

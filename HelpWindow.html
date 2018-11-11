@@ -3,17 +3,26 @@
 <link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="header"><h1>MakerManager - User Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>NUSCS2113-T09-1</code>      Since: <code>Sep 2018</code>      Licence: <code>MIT</code></p>
+<p>By: <code>NUSCS2113-AY1819S1-T09-1</code>      Since: <code>Sep 2018</code>      Licence: <code>MIT</code></p>
+</div>
+<div class="paragraph">
+<p>Welcome to the <em>MakerManager</em> User Guide! Choose a topic from the Table of Contents below, get step-by-step instructions, and develop makerspace management skills.
+If you are a first time visitor, we suggest you follow this short document top-to-bottom to get the most out of it.</p>
 </div>
 </div>
 <div id="toc" class="toc">
 <div id="toctitle"></div>
 <ul class="sectlevel1">
 <li><a href="#introduction">1. Introduction</a></li>
-<li><a href="#quick-start">2. Quick Start</a></li>
+<li><a href="#quick-start">2. Quick Start</a>
+<ul class="sectlevel2">
+<li><a href="#user-interface-pointers">2.1. User Interface Pointers</a></li>
+</ul>
+</li>
 <li><a href="#Features">3. Features</a></li>
 <li><a href="#faq">4. FAQ</a></li>
 <li><a href="#command-summary">5. Command Summary</a></li>
+<li><a href="#upcoming-features">6. Upcoming Features</a></li>
 </ul>
 </div>
 </div>
@@ -21,26 +30,39 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>makerManager is for those who prefer to use a desktop app for managing prints and other machine jobs in a makerspace. More importantly, makerManager is optimized for those who prefer to work with a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, makerManager can get your print and machine management tasks done faster than traditional GUI apps. Interested? Jump to the Section 2, “Quick Start” to get started. Enjoy!</p>
+<p>MakerManager is a free, open-source, desktop application for managing time-shared equipment in makerspaces.
+If you are a lab manager, you can use MakerManager to update, add, remove and maintain your 3D printers and their print queues easily.
+If you are a maker, you can use MakerManager to add, remove, update prints manually or automatically to one of several 3D printers available.
+MakerManager aims to bridge a gap to let makers and managers coordinate effectively and efficiently - so you can worry less about availability and spend more time hacking!</p>
+</div>
+<div class="paragraph">
+<p>MakerManager is meant for makers, and thus is optimized for people comfortable with a Command Line Interface (CLI).
+This guide gives you a brief overview about setting-up and using MakerManager. MakerManager v1.4 is available for Windows, MacOS and Linux.</p>
+</div>
+<div class="paragraph">
+<p>Still with us? Great! Jump to the Section 2, “Quick Start” to get started. Enjoy!</p>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="quick-start"><a class="link" href="#quick-start">2. Quick Start</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>This section shows you how to fire up MakerManager and get a feel of how to use it.</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Ensure you have Java version <code>9</code> or later installed in your Computer.</p>
+<p>Ensure you have Java version <code>9</code> or later installed on your Computer. If you don&#8217;t have JRE installed, you can use <a href="https://docs.oracle.com/goldengate/1212/gg-winux/GDRAD/java.htm#BGBFJHAB">this link</a> as a reference.</p>
 </li>
 <li>
 <p>Download the latest <code>addressbook.jar</code> <a href="https://github.com/NUSCS2113-T09-1/main/releases">here</a>.</p>
 </li>
 <li>
-<p>Copy the file to the folder you want to use as the home folder for your Address Book.</p>
+<p>Copy the jar file to the folder you want to use as the home folder for your MakerManager.</p>
 </li>
 <li>
-<p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
+<p>Double-click on the jar file to start the app. The GUI should appear in a few seconds.</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/Ui.png" alt="Ui" width="790">
@@ -51,41 +73,158 @@
 <p>Type the command in the command box and press <kbd>Enter</kbd> to execute it.<br>
 e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> will open the help window.</p>
 </li>
-<li>
-<p>Some example commands you can try:</p>
+</ol>
+</div>
+<div class="sect2">
+<h3 id="user-interface-pointers"><a class="link" href="#user-interface-pointers">2.1. User Interface Pointers</a></h3>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="images/MarkedUi.png" alt="MarkedUi" width="790">
+</div>
+</div>
 <div class="ulist">
 <ul>
+<li>
+<p>The Command Box is at the top, with the prompt <code>Enter Command here</code></p>
+</li>
+<li>
+<p>The panel below the Command Box gives you useful text-based output after every input.</p>
+</li>
+<li>
+<p><code>1. oldupbox</code>, <code>2. ultimaker</code>, <code>3. mbot</code> and such columns represent machines</p>
+</li>
+<li>
+<p>The scrollable panel under each machine represents the machine&#8217;s queue, with Print Jobs divided by alternating shades of grey.</p>
+</li>
+<li>
+<p>The tags are self-explanatory, but you can read the next section for getting a good understanding of what they represent.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="imageblock">
+<div class="content">
+<img src="images/loginblue.png" alt="loginblue" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p>The UI lets you know when you&#8217;re logged in as an administrator by making the Command Box Blue with Yellow borders, and indicating "ADMIN_MODE" at the bottom.
+The "Admin Mode" is giving special access to lab managers in real life to manage the makerspace facilities, such as adding, removing or changing the status.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Prints are always displayed in order with <code>ONGOING</code> prints at the top, followed by <code>QUEUED</code>, then <code>requestDelete</code> or <code>CANCELLED</code> or <code>FINISHED</code>.</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Some example commands you can warm up with:</p>
+</li>
+</ol>
+</div>
+</li>
 <li>
 <p><strong><code>listMachines</code></strong> : lists all machines</p>
 </li>
 <li>
-<p><strong><code>addJob</code></strong><code>n/iDCP m/TYPrinter on/TIAN YUAN pr/HIGH d/1.5 jn/This is for the iDCP project t/iDCP</code> : adds a Job named <code>iDCP</code> to the MakerManager.</p>
+<p><strong><code>addJob</code></strong><code>n/iDCP m/Ultimaker on/TIAN YUAN pr/HIGH d/1.5 jn/This is for the iDCP project t/iDCP</code> :
+adds a Job named <code>iDCP</code> to the printer named <code>Ultimaker</code> with the owner named <code>TIAN YUAN</code> to the MakerManager. <code>jn/</code> and <code>t/</code> stand for job notes and tags, respectively.</p>
 </li>
 <li>
 <p><strong><code>manageJob</code></strong><code>iDCP start</code> : starts a Job named <code>iDCP</code></p>
 </li>
 <li>
 <p><strong><code>exit</code></strong> : exits the app</p>
-</li>
-</ul>
-</div>
-</li>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p>Refer to <a href="#Features">Section 3, &#8220;Features&#8221;</a> for details of each command.</p>
 </li>
 </ol>
+</div>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Loading Sample Data (Optional)</p>
+</div>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Download <code>DemoDataV1.4.zip</code> (You can find it in the root directory of the repository <a href="https://github.com/NUSCS2113-T09-1/main">here</a>)</p>
+</li>
+<li>
+<p>Unzip (using WinRar or 7Zip, for example) and move the 3 <code>xml</code> files in the folder named <code>data</code> in which you ran the jar file on your computer.</p>
+</li>
+<li>
+<p>The 'data' file should contain the 3 files below:</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>data/addressBook.xml</p>
+</li>
+<li>
+<p>data/makerManagerAdmins.xml</p>
+</li>
+<li>
+<p>data/makerManagerMachines.xml</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Restart MakerManager to see the sample data loaded. It should match the UI screenshots given above.</p>
+</li>
+</ol>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="Features"><a class="link" href="#Features">3. Features</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>This section will help you understand everything you can do with MakerManager, and show you how to do them.</p>
+</div>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p><strong>Command Format</strong></p>
+<p><strong>Problems MakerManager Solves</strong></p>
 </div>
 </div>
+</div>
+<div class="paragraph">
+<p>We need to agree on some terms before you can navigate the User Guide properly.
+MakerSpaces have various 'machines'. Each machine can have a queue of 'jobs'. Each queue can have only 1 'ongoing' job that is being processed.
+Each machine has a name, each job has a name, and both have extra information attached for ease of use.</p>
+</div>
+<div class="paragraph">
+<p>The problem makerspaces have today is the uncertainty when multiple people try to use the limited number of expensive machines for different tasks of different duration.
+One job can take hours, and you might come back later only to find that you missed your change by a minute and someone present has the machine busy for a few more hours.
+This can be extremely frustrating for you the user. Lab managers have tried using a time-sheet, but it hasn&#8217;t been very effective. MakerManager tries to streamline these processes.</p>
+</div>
+<div class="paragraph">
+<p>Now that you know what we&#8217;re trying to achieve, you will hopefully understand why we&#8217;ve included some features.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Using the Examples in this Guide</strong></p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>The examples in this guide are formatted with the following conventions:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -99,212 +238,98 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p>All other arguments are required for a valid command execution</p>
 </li>
 <li>
-<p>Every argument may be subject to further validation by the parser before execution</p>
+<p>Every argument may be subject to further validation by the parser before execution. Users will get feedback if the input is not conforming to rules.</p>
 </li>
 <li>
-<p>Words in upper-case are parameters to be supplied by users</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
+<p>Words in upper-case are parameters supplied by you</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>What You Can Do with MakerManager</strong></p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>For the following commands, you can execute them by typing the example in the Command Box and pressing <kbd>Enter</kbd>.
+Under each command, we use the following order: what it does, outcome you get, any special notes.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If any particular outcome is not listed, it implies that only a message will be shown pertaining to the output.<br>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The words 'Print', 'Job' and 'Print Job' are used interchangeably. This app now specializes in 3D Prints, but can be extended to other equipments in the future.
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
 <li>
-<p><strong>Viewing Help:</strong>
-Give the user guidance as to what (s)he can do with makerManager<br></p>
+<p><strong>Viewing Help</strong><br>
+Provides a guidance as to what you can do with MakerManager.<br>
+Outcome: You will see a window pop up with the user guide in it for quick reference.<br></p>
 <div class="literalblock">
 <div class="content">
 <pre>Format: help</pre>
 </div>
 </div>
 </li>
+</ul>
+</div>
+<div class="ulist">
+<ul>
 <li>
-<p><strong>Adding a print Job:</strong>
-Adds a print job to the machine&#8217;s queue. Specifying AUTO as MACHINE_NAME will let the software optimize which queue to add the print to.<br>
-Available priorities: URGENT, HIGH, NORMAL.</p>
-<div class="literalblock">
-<div class="content">
-<pre>Format: addJob n/JOB NAME m/MACHINE NAME on/JOB OWNER NAME pr/JOB PRIORITY d/JOB DURATION jn/JOB NOTE [t/TAG]</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>Examples:
-addJob n/iDCP m/TYPrinter on/TIAN YUAN pr/HIGH d/1.5 jn/This is for the iDCP project t/iDCP</pre>
-</div>
-</div>
-</li>
+<p><strong>Administrator mode</strong><br>
+The administrator mode is present to prevent malicious users from harming other users' workflow easily. Only the administrator is allowed to make drastic changes to the application and its data.<br>
+The commands listed below will only work in admin mode. The list is non-exhaustive, and you will find more admin-specific commands later on.<br></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
 <li>
-<p><strong>Starting a print Job:</strong>
-Starts an existing print job in the queue.<br></p>
-<div class="literalblock">
-<div class="content">
-<pre>Format: manageJob JOBNAME start</pre>
+<p><strong>Login</strong><br>
+Enables admin mode in MakerManager.<br>
+Outcome: You get admin-privileges and the Command Box will turn blue.<br></p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+A default account is created when no other admins exist. Username and Password of default are both 'admin'.<br>
+</td>
+</tr>
+</table>
 </div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+We strongly recommend adding a secure admin account and removing the default during your first run.<br>
+</td>
+</tr>
+</table>
 </div>
-<div class="literalblock">
-<div class="content">
-<pre>Examples:
-manageJob myPrint start</pre>
-</div>
-</div>
-</li>
-<li>
-<p><strong>Cancelling a Print:</strong>
-Cancel an existing print in the queue.<br></p>
-<div class="literalblock">
-<div class="content">
-<pre>Format: manageJob JOBNAME cancel</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>Examples:
-manageJob myPrint cancel</pre>
-</div>
-</div>
-</li>
-<li>
-<p><strong>Restarting a Print:</strong>
-Restart an existing print in the queue.<br></p>
-<div class="literalblock">
-<div class="content">
-<pre>Format: manageJob JOBNAME restart</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>Examples:
-manageJob myPrint restart</pre>
-</div>
-</div>
-</li>
-<li>
-<p><strong>Deleting a Print:</strong>
-deletes an existing print in the queue.<br></p>
-<div class="literalblock">
-<div class="content">
-<pre>Format: manageJob JOBNAME delete</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>Examples:
-manageJob myPrint delete
-manageJob anotherPrint delete</pre>
-</div>
-</div>
-</li>
-<li>
-<p><strong>Requests a print job to be deleted by admin:</strong>
-Tags a print job with a "requestDeletion" tag that is to be removed by admin</p>
-<div class="literalblock">
-<div class="content">
-<pre>Format: requestDeletion n/JOB NAME</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>Examples:
-requestDeletion n/iDCP</pre>
-</div>
-</div>
-</li>
-<li>
-<p><strong><code>[WIP][DISABLED]</code> Listing Prints:</strong>
-Lists prints with optional filters. Currently lists persons.<br></p>
-<div class="literalblock">
-<div class="content">
-<pre>Format: list [n/PRINT_NAME] [m/MACHINE_NAME] [s/SPECIAL_NOTES] [p/PRIORITY]</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>Examples:
-list n/myprint m/printer_1 s/red filament only p/1 +
-list p/1</pre>
-</div>
-</div>
-</li>
-<li>
-<p><strong><code>[WIP][DISABLED]</code> Listing History of Prints:</strong>
-Lists all completed prints with optional filters.<br></p>
-<div class="literalblock">
-<div class="content">
-<pre>Format: list_history [n/PRINT_NAME] [m/MACHINE_NAME] [s/SPECIAL_NOTES] [p/PRIORITY]</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>Examples:
-list_history n/myprint m/printer_1 s/red filament only p/1 +
-list_history p/1</pre>
-</div>
-</div>
-</li>
-<li>
-<p><strong><code>[WIP][DISABLED]</code> Editing a Print:</strong>
-Edits an existing print in the queue.<br></p>
-<div class="literalblock">
-<div class="content">
-<pre>Format: edit INDEX [n/PRINT_NAME] [m/MACHINE_NAME] [s/SPECIAL_NOTES] &lt;p/PRIORITY&gt;</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>Examples:
-edit 1 n/myprint m/printer_1 s/red filament only p/1 +
-edit 2 p/1</pre>
-</div>
-</div>
-</li>
-<li>
-<p><strong>Listing Machines:</strong>
-Lists machines.<br></p>
-<div class="literalblock">
-<div class="content">
-<pre>Format: listMachines</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>Examples:
-listMachines</pre>
-</div>
-</div>
-</li>
-<li>
-<p><strong>Finding Machines:</strong>
-Finds machines based on given keywords.<br></p>
-<div class="literalblock">
-<div class="content">
-<pre>Format: findMachines [machine name] [machine name 2]</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>Examples:
-findMachine myMachine1</pre>
-</div>
-</div>
-</li>
-<li>
-<p><strong>Exit the program:</strong>
-Exits the program<br></p>
-<div class="literalblock">
-<div class="content">
-<pre>Format: exit</pre>
-</div>
-</div>
-</li>
-<li>
-<p><strong>Saving Data:</strong>
-Address book data are saved in the hard disk automatically after any command that changes the data.There is no need to save manually.</p>
-</li>
-<li>
-<p><strong>Admin specific commands:</strong>
-The following commands will only work in admin mode. Admin accounts currently not saved across sessions.</p>
-<div class="olist lowerroman">
-<ol class="lowerroman" type="i">
-<li>
-<p><strong>Login:</strong>
-Enables admin mode. Note that a default account is created when no other admins exist. Username and Password of default are both 'admin'<br></p>
 <div class="literalblock">
 <div class="content">
 <pre>Format: login ADMIN_ID PASSWORD</pre>
@@ -312,69 +337,122 @@ Enables admin mode. Note that a default account is created when no other admins 
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>Examples:
-login admin admin</pre>
+<pre>Example: login admin admin</pre>
 </div>
 </div>
 </li>
 <li>
-<p><strong>Logout:</strong>
-Disable admin mode.<br></p>
+<p><strong>Logout (Admin Only)</strong><br>
+Disables admin mode in MakerManager. This ensures that MakerManager is usable by both types of user in the same terminal, with the same UI.<br>
+Outcome: The Command Box will return back to original color afterwards, and you will lose admin-privileges.</p>
 <div class="literalblock">
 <div class="content">
-<pre>Format: logout</pre>
+<pre>Format: &lt;logout&gt;</pre>
 </div>
 </div>
 </li>
 <li>
-<p><strong>Add Admin:</strong>
-Add another admin. Note that PASSWORD has to match some specific validation criteria.<br></p>
+<p><strong>Add Admin (Admin Only)</strong><br>
+Adds another admin to MakerManager. This enables makerspaces with multiple managers in-charge to collaborate easily.<br></p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+PASSWORD has to match a specific validation criteria - namely at least: 1 upper-case letter, 1 lower-case letter, 1 number, 1 symbol from [@#$%^&amp;=] and 8 characters in total
+</td>
+</tr>
+</table>
+</div>
 <div class="literalblock">
 <div class="content">
-<pre>Format: addAdmin USERNAME PASSWORD VERIFY_PASSWORD</pre>
+<pre>Format: &lt;addAdmin&gt; USERNAME PASSWORD VERIFY_PASSWORD</pre>
 </div>
 </div>
-</li>
-<li>
-<p><strong>Remove Admin:</strong>
-Removing another admin.<br></p>
 <div class="literalblock">
 <div class="content">
-<pre>Format: removeAdmin USERNAME</pre>
+<pre>Example: addAdmin saif 123Abcd$ 123Abcd$</pre>
 </div>
 </div>
 </li>
 <li>
-<p><strong>Update Admin Password:</strong>
-Updating your own account&#8217;s password. Note that NEW_PW has to match some specific validation criteria.<br></p>
+<p><strong>Remove Admin (Admin Only)</strong><br>
+Removes a specified admin from the MakerManager. This will let you remove an admin if (s)he is no longer granted these privileges in the makerspace, for whatever reason.<br>
+Outcome: The ex-admin will no longer be able to login.
+<em>If you remove your own account, you will be logged out automatically.</em><br></p>
 <div class="literalblock">
 <div class="content">
-<pre>Format: updatePassword USERNAME OLD_PW NEW_PW NEW_PW_VERIFY</pre>
+<pre>Format: &lt;removeAdmin&gt; USERNAME</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Example: removeAdmin saif</pre>
 </div>
 </div>
 </li>
 <li>
-<p><strong>Add Machine:</strong> Adds a new machine.</p>
-<div class="olist upperalpha">
-<ol class="upperalpha" type="A">
+<p><strong>Update Admin Password (Admin Only)</strong><br>
+Updates the logged in admin&#8217;s password in MakerManager. You may want to change to a different password frequently, for good security practices.<br></p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+NEW_PW has to match the same validation criteria as the one specified in addAdmin command.<br>
+</td>
+</tr>
+</table>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Format: &lt;updatePassword&gt; USERNAME OLD_PW NEW_PW NEW_PW_VERIFY</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Example: updatePassword saif 123Abcd$ 456Wasd= 456Wasd=</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Add Machine (Admin Only)</strong><br>
+Adds a new machine to MakerManager. You might be extending your printer fleet by adding new printers, and this lets the users of the space know. Especially handy if it&#8217;s a big place!<br>
+Outcome: You will see a new column added to the UI.<br></p>
+<div class="paragraph">
+<p>This command has the following constraints:</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
 <li>
 <p>All machine names must be unique.</p>
-<div class="olist upperroman">
-<ol class="upperroman" type="I">
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
 <li>
 <p>Names should only contain alphanumeric characters and spaces,
 and it should not be blank.</p>
 </li>
 <li>
-<p>Reserved names are : [ AUTO ]</p>
+<p>Reserved names are : <code>AUTO</code></p>
 </li>
 </ol>
 </div>
 </li>
 <li>
 <p>Status can only be</p>
-<div class="olist upperroman">
-<ol class="upperroman" type="I">
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
 <li>
 <p>“ENABLED”</p>
 </li>
@@ -382,85 +460,13 @@ and it should not be blank.</p>
 <p>“DISABLED”</p>
 <div class="literalblock">
 <div class="content">
-<pre>Format:
-addMachine n/MACHINE_NAME ms/STATUS</pre>
+<pre>Format: &lt;addMachine&gt; n/MACHINE_NAME ms/STATUS</pre>
 </div>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>Example:
-addMachine n/myMachine ms/ENABLED</pre>
+<pre>Example: addMachine n/myMachine ms/DISABLED</pre>
 </div>
-</div>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p><strong><code>[WIP][DISABLED]</code> Remove Machine:</strong>
-removes a machine. <br></p>
-<div class="literalblock">
-<div class="content">
-<pre>Format: removeMachine MACHINE_NAME</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>Example:
-removeMachine my_machine</pre>
-</div>
-</div>
-</li>
-<li>
-<p><strong>Edit Machine</strong> :
-Edits an existing machine.</p>
-<div class="olist upperalpha">
-<ol class="upperalpha" type="A">
-<li>
-<p>All machine names must be unique.</p>
-<div class="olist upperroman">
-<ol class="upperroman" type="I">
-<li>
-<p>Names should only contain alphanumeric characters and spaces,
-and it should not be blank.</p>
-</li>
-<li>
-<p>Reserved names are : [ AUTO ]</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Status can only be</p>
-<div class="olist upperroman">
-<ol class="upperroman" type="I">
-<li>
-<p>“ENABLED”</p>
-</li>
-<li>
-<p>“DISABLED”</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>At least one optional argument must be present.<br></p>
-<div class="literalblock">
-<div class="content">
-<pre>Format: editMachine MACHINE_NAME [n/MACHINE_NAME] [ms/STATUS]</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>Example:
-editMachine my_machine n/my_machine2 ms/ENABLED</pre>
-</div>
-</div>
-</li>
-</ol>
 </div>
 </li>
 </ol>
@@ -471,6 +477,533 @@ editMachine my_machine n/my_machine2 ms/ENABLED</pre>
 </li>
 </ul>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Edit Machine</strong><br>
+Edits an existing machine in MakerManager.<br>
+Outcome: You will see a change in the fields of the specific machine.<br>
+<em>This command adhere to the same constraints as addMachine Command.<br>
+At least one optional argument must be present. The argument(s) present will replace the respective values of the existing machine</em><br>
+Machine status can be <code>ENABLED</code> or <code>DISABLED</code>.<br></p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Machines with <code>ongoing</code> prints cannot be edited!
+</td>
+</tr>
+</table>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Format: &lt;editMachine&gt; MACHINE_NAME [n/MACHINE_NAME] [ms/STATUS]</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Example: editMachine oldupbox n/newupbox ms/ENABLED</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Manage machine (Admin only)</strong><br></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><strong>Clean a Machine</strong><br>
+Cleans a machine by removing jobs that have status <code>CANCELLED</code>, <code>FINISHED</code> or <code>DELETING</code>. This is a convenient and fast way for you to get things done.<br>
+Outcome: The machine will no longer have any of these jobs listed afterwards, making it easier for others to view.<br></p>
+<div class="literalblock">
+<div class="content">
+<pre>Format: &lt;manageMachine&gt; MACHINE_NAME clean</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Example: manageMachine Ultimaker clean</pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Flush a Machine</strong><br>
+Removes all the jobs from the specified machine. You will be warned and asked for confirmation, as it may hinder other users.<br>
+Outcome: If you press OK, the machine&#8217;s queue will be empty. If you press CANCEL, nothing happens.<br>
+    <em>If you specify AUTO, the prints in the existing machine will be transferred to other machines optimally.</em><br></p>
+<div class="literalblock">
+<div class="content">
+<pre>Format: &lt;manageMachine&gt; MACHINE_NAME flush</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Examples:
+manageMachine oldupbox flush
+manageMachine oldupbox flush AUTO</pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Remove a Machine</strong><br>
+Removes a machine from MakerManager. This helps you decommission a machine and let users know instantly.<br>
+Outcome: You will no longer see the machine as a column in the UI.<br></p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You can&#8217;t do this unless the machine&#8217;s queue is empty.<br>
+</td>
+</tr>
+</table>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Format : &lt;manageMachine&gt; MACHINE_NAME remove</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Example: manageMachine oldupbox remove</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Finding Machines:</strong><br>
+Finds machines based on given keywords. You have to give at least 1 argument.<br>
+Outcome: You will see only matching machines shown in the UI.<br></p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+After the filtered machine list is displayed, use the <code>listMachines</code> command to return to the main menu.<br>
+</td>
+</tr>
+</table>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Format: findMachine [MACHINE_NAME_1] [MACHINE_NAME_2]...</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Example: findMachine oldupbox mbot</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Listing Machines</strong><br>
+Lists all the machines present in the makerspace.<br>
+Outcome: All the queues will be visible in the UI.<br></p>
+<div class="literalblock">
+<div class="content">
+<pre>Format: listMachines</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Example: listMachines</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Add a Print Job</strong><br>
+Adds a print job to a machine&#8217;s queue in MakerManager.<br>
+Outcome: You will see the job in if you scroll down the queue of the machine you specified.<br>
+<em>Specifying <code>AUTO</code> as MACHINE_NAME will let the software optimize which queue to add the print to.<br>
+Available priorities: <code>URGENT</code>, <code>HIGH</code>, <code>NORMAL</code>.<br>
+Please note that <code>PRIORITY</code> is currently just a display feature aimed at helping the lab manager gain more information.</em><br></p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Prints cannot be added to <code>disabled</code> Machines!<br>
+Multiple tags can be added to one print job.
+</td>
+</tr>
+</table>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Format: addJob n/PRINT_NAME m/MACHINE_NAME on/OWNER_NAME pr/PRIORITY d/DURATION(in hours) jn/NOTE [t/TAG]...</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Example: addJob n/iDCP m/UpBox on/TIAN YUAN pr/HIGH d/1.5 jn/This is for the iDCP project t/iDCP</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Manage Print</strong></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><strong>Start a Print</strong><br>
+Starts an existing print job, if it is at the top of the queue.<br>
+Outcome: The print tag will be set to <code>ONGOING</code> and the machine will start a timer. The print will be automatically flagged as <code>FINISHED</code> after the time specified in the duration has passed.<br>
+<em>If you want to get an urgent print done, but it is not at the top of the queue, please request lab manager&#8217;s assistance.</em><br></p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If <code>admin</code> mode is enabled, users are able to start jobs that are not at the top of the queue
+</td>
+</tr>
+</table>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Format: manageJob/&lt;manageJob&gt; PRINT_NAME start</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Example: manageJob gears start</pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Cancel a Print</strong><br>
+Cancels an existing print in the queue. You might want to use this if the print fails, which is very common for 3D printers, or if you no longer want to print for whatever reason.<br>
+Outcome: The print tag will be changed to <code>CANCELLED</code>.<br></p>
+<div class="literalblock">
+<div class="content">
+<pre>Format: manageJob PRINT_NAME cancel</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Example: manageJob gears cancel</pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Restarting a Print:</strong>
+Restarts an existing print in the queue. Same as start. This is be used after a failed(cancelled) print.<br></p>
+<div class="literalblock">
+<div class="content">
+<pre>Format: manageJob PRINT_NAME restart</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Example: manageJob gears restart</pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Delete a Print (Admin only)</strong><br>
+Deletes an existing print in the queue.<br>
+Outcome: You will no longer see the specified print in the UI.<br></p>
+<div class="literalblock">
+<div class="content">
+<pre>Format: &lt;manageJob&gt; PRINT_NAME delete</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Example: manageJob gears delete</pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Move a Print (Admin only)</strong><br>
+Moves an existing print that is not <code>ONGOING</code> to another machine. This command inserts the print at the bottom of the target Machine&#8217;s queue<br>
+Outcome: Print is removed from its current Machine and added to the bottom of the queue of the target Machine.<br></p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Prints are always displayed sorted in order of <code>ONGOING</code>, followed by <code>QUEUED</code>, then
+<code>requestDeletion</code> or <code>CANCELLED</code> or <code>FINISHED</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Format: &lt;manageJob&gt; PRINT_NAME move MACHINE_NAME</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Example: manageJob gears move ultimaker</pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Shifting a Print (Admin only)</strong><br>
+Shifts an existing print that is not <code>ONGOING</code> up or down in it&#8217;s queue.<br>
+Valid shift options are:</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>up</p>
+</li>
+<li>
+<p>down</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Prints are always displayed sorted in order of <code>ONGOING</code>, followed by <code>QUEUED</code>, then
+<code>requestDeletion</code> or <code>CANCELLED</code> or <code>FINISHED</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Format: &lt;manageJob&gt; PRINT_NAME shift SHIFT_OPTION</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Example: manageJob chassis shift up</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Swap a Print (Admin only)</strong><br>
+Swaps an existing print with another existing print. Both Prints must not be <code>ONGOING</code>.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Prints are always displayed sorted in order of <code>ONGOING</code>, followed by <code>QUEUED</code>, then
+<code>requestDeletion</code> or <code>CANCELLED</code> or <code>FINISHED</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Format: &lt;manageJob&gt; PRINT_NAME swap TARGET_PRINT_NAME</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Example: manageJob gears swap cup</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Requests a print job to be deleted by admin</strong><br>
+This command ensures that a malicious user cannot delete prints from a queue just so that (s)he can get the print done fast.<br>
+Outcome: Marks a print with a <code>requestDeletion</code> tag, after which the admin might decide to remove it.<br></p>
+<div class="literalblock">
+<div class="content">
+<pre>Format: requestDeletion n/PRINT_NAME</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Example: requestDeletion n/gears</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Finding Prints:</strong>
+Finds Jobs based on given keywords. You have to give at least 1 argument.<br>
+Outcome: You will see only matching Jobs shown in the UI.<br></p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+After the filtered job list is displayed, use the <code>listJobs</code> command to return to the main menu.<br>
+</td>
+</tr>
+</table>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Format: findJob [JOB_NAME_1] [JOB_NAME_2]...</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Example: findJob gears chassis cup</pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Listing Prints</strong><br>
+Lists all prints.<br>
+Outcome: All Prints will be visible in the UI.<br></p>
+<div class="literalblock">
+<div class="content">
+<pre>Format: listJobs</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Example: listJobs</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Undoing and Redoing Commands</strong><br>
+The Maker Manager is remembers the  sequence of commands entered, and provides the option for users to
+undo or redo actions should the need arises.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The Commands <code>help</code> <code>history</code> <code>findJob</code> <code>findMachine</code> <code>listJobs</code> and <code>listMachines</code> do not count as
+commands for the purposes of <code>undo</code> and <code>redo</code>, and therefore trying to undo or
+redo these commands will instead undo or redo the most recent
+command that does not belong to the above list!
+</td>
+</tr>
+</table>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><strong>Undo:</strong>
+This command reverts the state of Maker Manager to a state before the most recent successful command.
+<br></p>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<code>Logout</code> commands cannot be undone!
+</td>
+</tr>
+</table>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Format: undo</pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Redo:</strong>
+This command reverts the state of Maker Manager to a state before the most recent successful undo command.
+<br></p>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<code>Login</code> commands cannot be redone!
+</td>
+</tr>
+</table>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Format: redo</pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>History:</strong>
+This command displays a list of commands entered by the user.
+<br></p>
+<div class="literalblock">
+<div class="content">
+<pre>Format: history</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Exit the program</strong><br>
+Exits MakerManager.<br>
+Outcome: The UI will close, and not be available anymore until the next time you start it.<br></p>
+<div class="literalblock">
+<div class="content">
+<pre>Format: exit</pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Saving Data</strong><br>
+MakerManager data are saved in the hard disk automatically after any command that changes the data.There is no need to save manually.</p>
+</li>
+</ol>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -478,29 +1011,46 @@ editMachine my_machine n/my_machine2 ms/ENABLED</pre>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Q:</strong> How do I transfer my data to another Computer?<br>
-*A: *Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous makerManagerfolder.</p>
+<strong>A:</strong> Install the app in the other computer and overwrite the empty data files it creates with the files that contains the data of your previous MakerManager.
+Normally, it will be located in the <code>data/</code> folder in the <code>root</code> directory.</p>
+</div>
+<div class="paragraph">
+<p><strong>Q:</strong> How can I be notified with the latest releases?<br>
+<strong>A:</strong> You can <code>watch</code> or <code>follow</code> our repository on github if you want to hear of our latest releases.</p>
+</div>
+<div class="paragraph">
+<p><strong>Q:</strong> I found a bug/have a suggestion! What do I do?<br>
+<strong>A:</strong> Feel free to report bugs/suggest enhancements using the <a href="https://github.com/NUSCS2113-T09-1/main/issues"><code>Issue Tracker</code></a>, or simply dropping an email to one of the developers.</p>
+</div>
+<div class="paragraph">
+<p><strong>Q:</strong> How do I contact the authors?<br>
+<strong>A:</strong> Our contacts are given in the <code>About Us</code> and <code>Contact Us</code> page; drop by as we&#8217;d love to get to know you!</p>
+</div>
+<div class="paragraph">
+<p><strong>Q:</strong> Can I use your source code?<br>
+<strong>A:</strong> This work is under the MIT license. So Feel free to fork the repo and develop it on your own while adhearing to the license constraints. Check out the <code>Developer Guide</code> for getting started.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="command-summary"><a class="link" href="#command-summary">5. Command Summary</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>This is a nifty little list you can print and paste somewhere for quick reference.<br></p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
 <p>help</p>
 </li>
 <li>
-<p>addJob n/PRINT_NAME m/MACHINE_NAME d/PRINT_DURATION [s/SPECIAL_NOTES] &lt;p/PRIORITY&gt;</p>
+<p>undo</p>
 </li>
 <li>
-<p><code>[WIP][DISABLED]</code> list [n/PRINT_NAME] [m/MACHINE_NAME] [s/SPECIAL_NOTES] [p/PRIORITY]</p>
+<p>redo</p>
 </li>
 <li>
-<p><code>[WIP][DISABLED]</code> list_history [n/PRINT_NAME] [m/MACHINE_NAME] [s/SPECIAL_NOTES] [p/PRIORITY]</p>
-</li>
-<li>
-<p>exit</p>
+<p>history</p>
 </li>
 <li>
 <p>login ADMIN_ID PASSWORD</p>
@@ -518,16 +1068,31 @@ editMachine my_machine n/my_machine2 ms/ENABLED</pre>
 <p>updatePassword USERNAME OLD_PW NEW_PW NEW_PW_VERIFY</p>
 </li>
 <li>
-<p>add_machine n/MACHINE_NAME ms/STATUS</p>
+<p>addMachine n/MACHINE_NAME ms/STATUS</p>
 </li>
 <li>
-<p><code>[WIP][DISABLED]</code> removeMachine n/MACHINE_NAME</p>
+<p>editMachine MACHINE_NAME [n/MACHINE_NAME] [ms/STATUS]</p>
 </li>
 <li>
-<p>edit_machine MACHINE_NAME [n/MACHINE_NAME] [ms/STATUS]</p>
+<p>manageMachine MACHINE_NAME remove</p>
+</li>
+<li>
+<p>manageMachine MACHINE_NAME flush</p>
+</li>
+<li>
+<p>manageMachine MACHINE_NAME flush AUTO</p>
+</li>
+<li>
+<p>manageMachine MACHINE_NAME clean</p>
+</li>
+<li>
+<p>findMachine [MACHINE_NAME_1] [MACHINE_NAME_2]</p>
 </li>
 <li>
 <p>listMachines</p>
+</li>
+<li>
+<p>addJob n/PRINT_NAME m/MACHINE_NAME on/OWNER NAME pr/PRIORITY d/DURATION(in hours) jn/NOTE [t/TAG]</p>
 </li>
 <li>
 <p>manageJob JOB_NAME start</p>
@@ -539,15 +1104,69 @@ editMachine my_machine n/my_machine2 ms/ENABLED</pre>
 <p>manageJob JOB_NAME restart</p>
 </li>
 <li>
+<p>manageJob JOB_NAME swap TARGET_JOB_NAME</p>
+</li>
+<li>
+<p>manageJob JOB_NAME move TARGET_MACHINE_NAME</p>
+</li>
+<li>
+<p>manageJob JOB_NAME shift up</p>
+</li>
+<li>
+<p>manageJob JOB_NAME shift down</p>
+</li>
+<li>
 <p>manageJob JOB_NAME delete</p>
 </li>
 <li>
-<p><code>[WIP][DISABLED]</code> manageJob JOB_NAME delete</p>
+<p>requestDeletion n/JOB_NAME</p>
 </li>
 <li>
-<p>requestDeletion n/iDCP</p>
+<p>findJob [JOB_NAME_1] [JOB_NAME_2]</p>
+</li>
+<li>
+<p>listJobs</p>
+</li>
+<li>
+<p>exit</p>
 </li>
 </ol>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-10 01:48:39 UTC</div></div></div></body></html>
+</div>
+<div class="sect1">
+<h2 id="upcoming-features"><a class="link" href="#upcoming-features">6. Upcoming Features</a></h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>More robust data security and integrity by incorporating a Database system</p>
+</li>
+<li>
+<p>Minimalistic User Accounts for all users, including guest accounts.</p>
+</li>
+<li>
+<p>Point system for frequent members and friendly people helping others print.</p>
+</li>
+<li>
+<p>Team accounts, for coordinating projects easily.</p>
+</li>
+<li>
+<p>Online MakerManager, so you can do all these from the comfort of your home.</p>
+</li>
+<li>
+<p>Integration with OctoPrint, so that prints can be started remotely!</p>
+</li>
+<li>
+<p>Automatically calculate duration of print from different Printer APIs.</p>
+</li>
+<li>
+<p>Hide Passwords when signing-up or logging-in</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>We&#8217;re excited! Are you?</p>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 11:01:05 UTC</div></div></div></body></html>

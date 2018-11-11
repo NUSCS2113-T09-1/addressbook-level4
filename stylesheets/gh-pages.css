@@ -66,6 +66,10 @@ table.tableblock > .title,
 }
 
 @media screen {
+    #seedu-header {
+        display : none;
+    }
+
     #footer {
         background-color: #f6f6f6;
         border-top: 1px #d2d2d2 solid;
