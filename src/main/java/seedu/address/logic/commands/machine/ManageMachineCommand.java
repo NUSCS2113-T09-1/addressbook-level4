@@ -133,7 +133,8 @@ public class ManageMachineCommand extends Command {
                         String.format(MESSAGE_MACHINE_DOES_NOT_HAVE_CLEANABLE_JOBS, machineToManage));
                 }
             default:
-                throw new CommandException(MESSAGE_NO_SUCH_MANAGE_MACHINE_COMMAND);
+                throw new CommandException(String.format(MESSAGE_NO_SUCH_MANAGE_MACHINE_COMMAND,
+                    machineToManage.getName()));
             }
         } else {
             throw new CommandException(MESSAGE_MACHINE_NOT_FOUND);
